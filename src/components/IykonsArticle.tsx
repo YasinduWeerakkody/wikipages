@@ -2,8 +2,8 @@ import React from "react";
 import '../components/Article_01.css';
 import { SearchOutlined, ArrowLeftOutlined } from "@ant-design/icons";
 import { Button, Layout } from "antd";
-import HeaderNav from "./HeaderNav";
-import Sidemenu from "./Sidemenu";
+import HeaderNav from "./Navbar/Navbar";
+// import Sidemenu from "./Sidemenu";
 
 
 
@@ -14,11 +14,11 @@ const IykonsArticle: React.FC = () => {
     <div>
     <HeaderNav/>
 
-      <Layout style={{ minHeight: "100vh" }}>
+      {/* <Layout style={{ minHeight: "100vh" }}>
         <Sider width={300} className="site-layout-background">
           <Sidemenu/>
-        </Sider>
-        <Layout>
+        </Sider>*/}
+        <Layout> 
           <Content
             style={{
               padding: "0 24px",
@@ -117,7 +117,7 @@ const IykonsArticle: React.FC = () => {
             </div>
           </Content>
         </Layout>
-      </Layout>
+      {/* </Layout> */}
     </div>
   );
 };

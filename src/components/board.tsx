@@ -5,7 +5,7 @@ import { Divider, Flex, Radio, Space, Tooltip } from 'antd';
 import { SearchOutlined, ArrowLeftOutlined, CaretRightOutlined } from '@ant-design/icons';
 import img1 from '../images/wikilogo.png';
 import img2 from '../images/Frame.png';
-import HeaderNav from './HeaderNav';
+import HeaderNav from './Navbar/Navbar';
 
 const { Header, Sider, Content } = Layout;
 const { Search } = Input;
