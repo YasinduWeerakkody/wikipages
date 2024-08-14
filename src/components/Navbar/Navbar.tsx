@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../Css/Navbar.css"
+import "./Navbar.css"
 import {
   SettingOutlined,
   SearchOutlined,

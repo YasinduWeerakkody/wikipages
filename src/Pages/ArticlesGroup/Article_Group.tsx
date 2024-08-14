@@ -1,8 +1,8 @@
 import React from "react";
-import '../Css/Article_01.css';
+import './ArticleGroup.css';
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Layout, Card, Pagination } from "antd";
-import HeaderNav from "../Navbar/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 // import Sidemenu from "./Sidemenu";
 import { EditOutlined, DeleteOutlined, EyeOutlined } from "@ant-design/icons";
 
@@ -42,7 +42,7 @@ const Article_Group: React.FC = () => {
   return (
     <div>
       {/* -----------header -----------------components */}
-      <HeaderNav/>
+      <Navbar/>
 
       {/* <Layout style={{ minHeight: "100vh" }}>
         <Sider width={300} className="site-layout-background">
