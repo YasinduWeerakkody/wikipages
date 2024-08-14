@@ -1,81 +1,48 @@
 import React from "react";
-
+import defaultProfile from '../../Assets/Images/defaultProfile.png'
+import logo from '../../Assets/Images/wikilogo.png';
 import "./Navbar.css"
 import {
-  SettingOutlined,
-  SearchOutlined,
-  BellOutlined,
-  UserOutlined,
+  BellOutlined
 } from "@ant-design/icons";
 import { Button, Avatar, Layout } from "antd";
-import logo from '../../Assets/Images/wikilogo.png';
 
-const { Header } = Layout;
 
 const Navbar: React.FC = () => {
   return (
     <div>
-      <Header className="header">
-        <div
-          className="logopart"
-          style={{ display: "flex", alignItems: "center" }}
-        >
-          <img
+      <div className="navbar">
+        <div className="navbar_left"> 
+        <div className="navbar_left_img">
+        <img
             src={logo}
             alt="IYKONNECT 3.0"
-            style={{ height: "30px", marginRight: "16px" }}
-          />
 
-          <div className="headersearchone" style={{ marginLeft: "auto" }}>
-            <Button
-              className="searchsize"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              To filter the clients by number / name
-              <SearchOutlined
-                className="iconheader"
-                style={{ marginLeft: "8px" }}
-              />
-            </Button>
-          </div>
-
-          <div
-            className="profilename"
-            style={{ display: "flex", alignItems: "center" }}
-          >
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <SettingOutlined className="profile" />
-            </div>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <SettingOutlined className="profile1" />
-            </div>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <BellOutlined className="profile2" />
-            </div>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <SettingOutlined className="profile3" />
-            </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                paddingLeft: "100px",
-              }}
-            >
-              <Avatar
-                className="profile4"
-                style={{ backgroundColor: "#000000" }}
-                icon={<UserOutlined />}
-              />
-              <span className="profilruser">JEYARAJ</span>
-            </div>
-          </div>
+          /> 
         </div>
-      </Header>
+        </div>
+
+        <div className="navbar_right"> 
+        <div className="navbar_right_btns">
+<BellOutlined className="navbar_right_btns_icon"/>
+        </div>
+        <div className="navbar_right_profile">
+        <div className="navbar_right_profile_img">
+        <img
+            src={defaultProfile}
+            alt="Default Profile"
+          /> 
+        </div>
+        <div className="navbar_right_profile_info"> 
+        <div className="navbar_right_profile_name">Default Name</div>
+        <div className="navbar_right_profile_email">default@gmail.com</div>
+        </div>
+       
+        </div>
+      
+        </div>
+      
+      </div>
     </div>
   );
 };

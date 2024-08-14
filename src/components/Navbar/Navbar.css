@@ -1,247 +1,115 @@
-li {
-    margin-bottom: 10px; 
+.navbar{
+  margin-top: 0px;
+  height: 60px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 4px 6px rgba(196, 196, 196, 0.5);
+  color: rgb(158, 158, 158);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+ 
+}
+
+.navbar_left{
+  /* Future Implementations */
+  margin-left: 10px;
+}
+.navbar_left_img{
+  height: 40px;
+  cursor: pointer;
+}
+.navbar_left_img > img{
+  height: 40px;
+}
+.navbar_right{
+  display: flex;
+}
+.navbar_right_btns{
+  border-right: 2px solid rgb(197, 197, 197);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+.navbar_right_btns_icon{
+  font-size: 24px;
+  color: rgb(158, 158, 158);
+  cursor: pointer;
+  margin-right:10px;
+  transition: 0.3s;
+}
+.navbar_right_btns_icon:hover{
+  color: rgb(0, 56, 222);
+  transform: scale(1.1); 
+}
+.navbar_right_profile{
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  margin-left: 10px;
+  /* background-color: red; */
+}
+.navbar_right_profile_img{
+  height: 50px;
+  width: 50px;
+  margin-right: 20px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.navbar_right_profile_img:hover {
+  transform: scale(1.1); 
+}
+.navbar_right_profile_img > img{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  
+}
+.navbar_right_profile_info{
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50px;
+  line-height: 1.2;
+  
+}
+
+.navbar_right_profile_name{
+ color: black;
+  font-size: 24px;
+  font-weight: bold;
+
+}
+
+.navbar_right_profile_email{
+  font-size: 18px;
+  color: rgb(100, 100, 100);
+}
+
+
+@media screen and (max-width: 650px){
+  .navbar{
+    /* background-color: rgb(255, 0, 0); */
+    height: 50px;
+  }
+  .navbar_left_img{
+    height: 30px;
+  }
+  .navbar_left_img > img{
+    height: 30px;
+  }
+  .navbar_right_profile_img{
+    height: 40px;
+    width: 40px;
+  }
+  .navbar_right_profile_info{
+    height: 40px;
+  }
+  .navbar_right_profile_name,
+  .navbar_right_profile_email {
+    display: none; 
   }
   
-  .artical{
-    
-      padding: 20px;
-      
-      margin-top: 25px;
-      border: 1px;
-      width: 1100px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(2, 2, 2, 0.5);
-      background-color: white;
-      color: rgb(76, 76, 76);
-      line-height: 1.6;
-      margin-bottom: 16px;
-     
-     
-    }
-    
-    .search {
-      margin-left: auto; 
-     
-    }
-    .searchsize{
-      width: 300px;
-      height: 40px;
-      justify-content: left;
-      color: rgb(159, 159, 159);
-      padding-left: 20px;
-    
-    }
-    .backspace{
-      padding-left: 0px;
-      font-size: 30px;
-      color: rgb(64, 64, 172);
-      font-weight: 600;
-      
-    }
-    
-    
-    .MenuArrow{
-      
-      float: right;
-      
-    
-     
-      
-    
-    }
-    
-    ant .CaretRightOutlined {
-      justify-content: right;
-    
-    }
-    .site-layout-background{
-    
-      justify-content: space-between;
-      justify-content: right;
-      background-color: rgb(255, 255, 255);
-       top:10px;
-      
-     
-      
-    }
-    
-    
-    
-    .back-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between; 
-      padding: 10px; 
-       
-    }
-    
-    .back-header p {
-      margin: 0;
-    }
-    
-    
-    
-    
-    
-    
-    
-    .ant-menu {
-      display: flex;
-      flex-direction: column; /* Stack menu items vertically */
-    }
-    
-    .ant-menu-item {
-      display: flex;
-      align-items: center; /* Center items vertically */
-      justify-content: space-between; /* Space between text and icon */
-    }
-    
-    .MenuArrow {
-      margin-left: auto; /* Pushes the icon to the right */
-    }
-    
-    
-    .header{
-      height: 50px;
-      background-color: rgb(255, 255, 255);
-      box-shadow: 0 4px 6px rgba(196, 196, 196, 0.5);
-      color: rgb(158, 158, 158);
-     
-    }
-    
-    
-    .header {
-      position: relative;
-      display: flex;
-      align-items: center;
-      height: 60px; /* Adjust based on your design */
-      background-color: #f0f2f5; /* Example background color */
-      padding: 0 24px;
-    }
-    
-    .logopart {
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-    
-    .logopart img {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      transform: translateY(-50%);
-      z-index: 2;
-    }
-    
-    .logopart h1 {
-      position: relative;
-      margin-left: 35px; /* Space from the logo */
-      z-index: 2; /* Ensure text is above the image */
-      color: #0e096bdb; /* Text color */
-      font-size: 27px; /* Adjust text size */
-    }
-    
-    .searchsize_header
-    {
-      width: 400px;
-      height: 40px;
-    }
-    
-    
-    .icon{
-      padding-left: 290px;
-     
-     
-     
-    }
-    .iconheader{
-      padding-left: 15px;
-    
-    }
-    
-    .headersearchone{
-      padding-left: 300px;
-    }
-    .searchbody{
-    
-      padding-left: 100px;
-    
-    }
-    .profile{
-     
-     padding-left: 300px;
-     
-     position: absolute;
-     display: flex;
-     
-    }
-    .profile1{
-  
-      padding-left: 350px;
-     ;
-      position: absolute;
-      display: flex;
-      
-     }
-     .profile2{
-     
-      padding-left: 400px;
-     
-      position: absolute;
-      display: flex;
-      
-     }
-     .profile3{
-      
-      padding-left: 450px;
-      
-      position: flex;
-      display: flex;
-     
-      
-      
-     }
-    
-     .profile4{
-   
-      
-      position: absolute;
-      display: flex;
-      
-     }
-    .profilename{
-      position: right;
-      
-      width: 100;
-      height: 50px;
-      display: flex;
-     align-items: center;
-     justify-content: center;
-     text-align: center;
-     padding-left: 100px;
-      
-    }
-    .profilruser{
-      padding-left: 50px;
-    
-     
-    }
-    .cardone{
-      display: flex;
-      
-    }
-    .card_effect{
-      width: 333px;
-      background-color: rgb(255, 255, 255);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      color: rgb(118, 115, 115);
-     
-    }
-  
-    .card_heading{
-      font-weight: 600;
-      color: rgb(86, 86, 86);
-  
-    }
-
-    
+}
