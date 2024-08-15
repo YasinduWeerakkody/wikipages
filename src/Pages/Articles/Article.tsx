@@ -1,133 +1,128 @@
-import React from "react";
-import '../../components/Css/Article_01.css'
+import React, { useState } from "react";
+import '../Articles/Article.css';
 import { SearchOutlined } from "@ant-design/icons";
-import { Button, Layout, Card, Pagination, Row, Col } from "antd";
+import { Button, Layout, Card, Row, Col, Pagination } from "antd";
 import Navbar from "../../components/Navbar/Navbar";
-// import Sidemenu from "./Sidemenu";
-import { EditOutlined, DeleteOutlined, EyeOutlined } from "@ant-design/icons";
 
 
+const { Content } = Layout;
 
-const { Sider, Content } = Layout;
-
-// Define the structure of the data
 interface NewsCard {
   title: string;
   content: string;
 }
 
-// Sample data array
+//Sample data ---------------------------
 const newsCards: NewsCard[] = [
     {  title: "Business News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-    {  title: "Tech News", content: "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations." },
+    {  title: "Tech News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
     {  title: "Market Updates", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
     {  title: "Global News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
     {  title: "Economy", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
     {  title: "Health", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-  
-  ];
-// Handle preview, edit, and delete actions
-const handlePreview = (index: number) => {
-  console.log(`Previewing item at index ${index}`);
-};
-
-const handleEdit = (index: number) => {
-  console.log(`Editing item at index ${index}`);
-};
-
-const handleDelete = (index: number) => {
-  console.log(`Deleting item at index ${index}`);
-};
+    {  title: "Business News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
+    {  title: "Tech News", content: "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations." },
+    {  title: "Market Updates", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
+    {  title: "Business News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
+    {  title: "Tech News", content: "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations." },
+    {  title: "Market Updates", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
+    {  title: "Business News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
+    {  title: "Tech News", content: "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations." },
+    {  title: "Market Updates", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
+    {  title: "Business News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
+    {  title: "Tech News", content: "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations." },
+    {  title: "Market Updates", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
+    {  title: "Business News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
+    {  title: "Tech News", content: "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations." },
+    {  title: "Market Updates", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
+    {  title: "Business News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
+    {  title: "Tech News", content: "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations." },
+    {  title: "Market Updates", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
+];
 
 const Article: React.FC = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 9;
+
+  // Calculate the index range for the current page
+  const startIndex = (currentPage - 1) * pageSize;
+  const endIndex = startIndex + pageSize;
+
+  // Slice the newsCards array to only show the items for the current page
+  const currentCards = newsCards.slice(startIndex, endIndex);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
   return (
     <div>
-      {/* -----------header -----------------components */}
-      <Navbar/>
+      {/* top-navbar */}
+      <Navbar />
+      {/* top-navbar */}
 
-      {/* <Layout style={{ minHeight: "100vh" }}>
-        <Sider width={300} className="site-layout-background">
-        
-          <Sidemenu/>
-        </Sider>*/}
-        <Layout> 
-          <Content
-            style={{
-              padding: "0 24px",
-              minHeight: 280,
-            }}
-          >
-            <p className="pu"
+      <Layout>
+        <Content
+          style={{
+            padding: "0 40px",
+            minHeight: 280,
+            marginBottom: '30px',
+          }}
+        >
+          <p className="pu">WIKI / IYKONS Article</p>
+
+          <div className="recent">
+            <div
+              className="back-header"
+              style={{ display: "flex", alignItems: "center" }}
             >
-              WIKI / IYKONS Article
-            </p>
-            <div className="artical">
-              <div
-                className="back-header"
-                style={{ display: "flex", alignItems: "center" }}
-              >
-                <p className="Backs">
-                  IYKONS Articles
-                </p>
-                <div className="search" style={{ marginLeft: "auto" }}>
-                  <Button className="searchsize">
-                    Search Your keyword ....
-                    {<SearchOutlined className="searchbody" />}
-                  </Button>
-                </div>
-              </div>
-              {/* cards */}
-              <div
-                className="cards"
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "20px",
-                  alignItems: "center",
-                  marginTop: "20px",
-                }}
-              >
-                <div
-                  className="cardone"
-                  style={{ display: "flex", gap: "20px" }}
-                >
-
-{/* ---------------------------cards -----------------------------------*/}
-
-
-<Row gutter={[16, 16]}>
-      {newsCards.map((news,index) => (
-        <Col key={index} xs={24} sm={12} md={8}>
-          <Card
-            className="card_effect"
-            actions={[
-              <EyeOutlined key="preview" onClick={() => handlePreview(index)} />,
-              <EditOutlined key="edit" onClick={() => handleEdit(index)} />,
-              <DeleteOutlined key="delete" onClick={() => handleDelete(index)} />
-            ]}
-          >
-            <span className="card_heading">
-              <p>{news.title}</p>
-            </span>
-            <p>{news.content}</p>
-          </Card>
-        </Col>
-      ))}
-    </Row>  
-
-
-
-{/* ---------------------------cards End-----------------------------------*/}
-
-                </div>
-                <div>
-                  <Pagination size="small" total={50} />
-                </div>
+              <p className="Backs">IYKONS Article</p>
+              <div className="search" style={{ marginLeft: "auto" }}>
+                <Button>
+                  <p className="searchsize">Search Your keyword & enter </p>
+                  {<SearchOutlined className="searchbody" />}
+                </Button>
               </div>
             </div>
-          </Content>
-        </Layout>
-      {/* </Layout>*/}
+            <div
+              className="cards"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "20px",
+                alignItems: "center",
+                marginTop: "20px",
+              }}
+            >
+              <Row gutter={[16, 16]}>
+                {currentCards.map((news, index) => (
+                  <Col key={index} xs={24} sm={12} md={8}>
+                    <Card>
+                      <span className="card_heading">
+                        <p className="par">{news.title}</p>
+                      </span>
+                      <p className="parOne">{news.content}</p>
+                    </Card>
+                  </Col>
+                ))}
+              </Row>
+
+              {/* Pagination component */}
+              <div>
+              <Pagination
+                current={currentPage}
+                pageSize={pageSize}
+                total={newsCards.length}
+                onChange={handlePageChange}
+                style={{ marginTop: '20px' }}
+              />
+              </div>
+              {/* Pagination component */}
+             
+            </div>
+          </div>
+        </Content>
+      </Layout>
     </div>
   );
 };

@@ -83,4 +83,4 @@ const Sidemenu: React.FC = () => {
   );
 };
 
-// export default Sidemenu;
+export default Sidemenu;

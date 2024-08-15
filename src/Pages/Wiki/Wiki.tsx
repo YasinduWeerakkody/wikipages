@@ -43,6 +43,7 @@ const Wiki: React.FC = () => {
         <Layout style={{ padding: '24px' }}>
           <Content className="content">
             <p className='topic1'>WIKI</p>
+            
             <div className="recent-articles">
               <div className="article-box1">
                 <h1>IYKONS WIKI</h1>
