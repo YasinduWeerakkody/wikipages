@@ -1,17 +1,17 @@
-/* ---------card css------------ */
-.card_effect{
-    width: 333px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    color: rgb(118, 115, 115);
-   
-  }
+.card{
+  /* background-color: red; */
+  height:200px;
+  width: 300px;
+  margin: 10px;
+  transition: 0.2s;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for the 3D effect */
+  border-radius: 8px; /* Rounded corners */
+}
 
-  .card_heading{
-    font-weight: 600;
-    color: rgb(0, 0, 0);
-    text-align: left;
-  }
-  .pa{
-    text-align: left;
+.card:hover{
+  transform: scale(1.03); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }

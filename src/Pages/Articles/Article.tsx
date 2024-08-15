@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import '../../components/Css/Article_01.css'
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Layout, Card, Pagination, Row, Col } from "antd";
 import Navbar from "../../components/Navbar/Navbar";
 // import Sidemenu from "./Sidemenu";
 import { EditOutlined, DeleteOutlined, EyeOutlined } from "@ant-design/icons";
-
+import { GetArticleService } from "../../Services/ArticlesService";
+import CustomCard from "../../components/CustomCards/CustomCard";
 
 
 const { Sider, Content } = Layout;
@@ -40,6 +41,29 @@ const handleDelete = (index: number) => {
 };
 
 const Article: React.FC = () => {
+
+  const [Articles, setArticles] = React.useState ([]);
+  const [loading, setLoading] = React.useState (true);
+
+
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+ 
+        try {
+            const data = await GetArticleService( 1, 10 );
+
+            setArticles(data);
+        } catch (error) {
+            console.error('Failed to fetch articles:', error);
+        } finally {
+            setLoading(false);
+        }
+    };
+    fetchArticles();
+}, []);
+console.log(Articles);
+
   return (
     <div>
       {/* -----------header -----------------components */}
@@ -96,9 +120,15 @@ const Article: React.FC = () => {
 
 
 <Row gutter={[16, 16]}>
-      {newsCards.map((news,index) => (
-        <Col key={index} xs={24} sm={12} md={8}>
-          <Card
+    
+
+
+
+     
+{Articles.map((article, index) => (<CustomCard data={article} />))}
+
+
+         {/* <Card
             className="card_effect"
             actions={[
               <EyeOutlined key="preview" onClick={() => handlePreview(index)} />,
@@ -110,9 +140,12 @@ const Article: React.FC = () => {
               <p>{news.title}</p>
             </span>
             <p>{news.content}</p>
-          </Card>
-        </Col>
-      ))}
+          </Card> */}
+
+
+
+   
+  
     </Row>  
 
 

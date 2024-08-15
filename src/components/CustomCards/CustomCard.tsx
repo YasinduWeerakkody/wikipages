@@ -2,6 +2,7 @@ import React from "react";
 import './CustomCard.css';
 import { Card } from "antd";
 import { EditOutlined, DeleteOutlined, EyeOutlined } from "@ant-design/icons";
+import parse from 'html-react-parser';
 //Todo fix the Card name 
 // Define the structure of the data
 interface NewsCard {
@@ -33,28 +34,26 @@ const handleDelete = (index: number) => {
 
 
 // Main component
-const NewsCardList: React.FC = () => {
-    return (
-      <>
-        {newsCards.map((news, index) => (
-          <Card
-            key={index}
-            className="card_effect"
-            actions={[
-              <EyeOutlined key="preview" onClick={() => handlePreview(index)} />,
-              <EditOutlined key="edit" onClick={() => handleEdit(index)} />,
-              <DeleteOutlined key="delete" onClick={() => handleDelete(index)} />
-            ]}
-          >
-            <span className="card_heading">
-              <p>{news.title}</p>
-            </span>
-            <p className="pa">{news.content}</p>
-          </Card>
-        ))}
-      </>
-    );
-  };
+const CustomCard: React.FC<{ data: any }> = (props) => {
+  const { data } = props;
+
+
+// console.log(data)
+// console.log(data.articleDescription)
+  return (
+    <div>
+      <Card
+      className="card"
+        title={parse(`${data.articleName} (${data.articleGroupName})`)}
+       
+     
+      >
+        <p>{parse(data.articleDescription)}</p>
+     
+      </Card>
+    </div>
+  );
+}; 
   
  
-  export default NewsCardList;
+  export default CustomCard;
