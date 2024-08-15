@@ -16,9 +16,6 @@ interface NewsCard {
 
 
 // Sample data
-=======
-
-
 // const newsCards: NewsCard[] = [
 //   { title: "Business News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
 //   { title: "Tech News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
