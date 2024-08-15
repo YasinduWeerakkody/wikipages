@@ -1,3 +1,20 @@
+.Cards_Container{
+  display:flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+ 
+}
+
+.displayoute{
+  color: #999;
+  font-weight: 600;
+  font-size: large;
+  text-align: left;
+  
+}
+
+
 /* Responsive Adjustments */
 
   @media (max-width: 768px) {
@@ -30,13 +47,7 @@
   }
 
   /* Main Topic - Wiki / Iykons Article */
-  .pu{
-      color: #999;
-      font-weight: 600;
-      font-size: large;
-      text-align: left;
-      
-  }
+  
   /* topic - IYKONS Articles */
   .Backs{
     font-weight: 600;

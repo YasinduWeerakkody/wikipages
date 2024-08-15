@@ -11,13 +11,9 @@
     "@types/node": "^16.18.104",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-<<<<<<< HEAD
-    "antd": "^5.20.0",
     "axios": "^1.7.4",
     "html-react-parser": "^5.1.12",
-=======
     "antd": "^5.20.1",
->>>>>>> 89d26bea56d093fa884d1583110eac2042b421a6
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.0",
