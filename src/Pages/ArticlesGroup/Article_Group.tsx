@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import '../ArticlesGroup/ArticleGroup.css';
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Layout, Card, Row, Col, Pagination } from "antd";
 import Navbar from "../../components/Navbar/Navbar";
-
-
+import { GetArticlGroupeService } from "../../Services/ArticlesGroupService";
+import CustomCard from "../../components/CustomCards/CustomCard";
+import CustomCardArticleGroup from "../../components/CustomCardsArticleGroup/CustomCardArticleGroup";
 const { Content } = Layout;
 
 interface NewsCard {
@@ -42,7 +43,24 @@ const newsCards: NewsCard[] = [
 
 const Article_Group: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [articleGroups, setArticleGroups] = useState([]);
+  const [loading, setLoading] = useState(true);
   const pageSize = 9;
+
+useEffect(() => {
+  try {
+    const fetchArticles = async () => {
+      const data = await GetArticlGroupeService(1, 9);
+      setArticleGroups(data);
+      console.log(data)
+    };
+    fetchArticles();
+  } catch (error) {
+    console.error('Failed to fetch articles:', error);
+    setLoading(false);
+  }
+}, []);
+
 
   // Calculate the index range for the current page
   const startIndex = (currentPage - 1) * pageSize;
@@ -57,10 +75,7 @@ const Article_Group: React.FC = () => {
 
   return (
     <div>
-      {/* top-navbar */}
       <Navbar />
-      {/* top-navbar */}
-
       <Layout>
         <Content
           style={{
@@ -94,18 +109,13 @@ const Article_Group: React.FC = () => {
                 marginTop: "20px",
               }}
             >
-              <Row gutter={[16, 16]}>
-                {currentCards.map((news, index) => (
-                  <Col key={index} xs={24} sm={12} md={8}>
-                    <Card>
-                      <span className="card_heading">
-                        <p className="par">{news.title}</p>
-                      </span>
-                      <p className="parOne">{news.content}</p>
-                    </Card>
-                  </Col>
-                ))}
-              </Row>
+              {/* <Row gutter={[16, 16]}> */}
+              <div className="Cards_Container"> 
+              {articleGroups.map((article: any, index: number) => (
+                        <CustomCardArticleGroup key={index} data={article} />
+                  ))}
+                   </div> 
+              {/* </Row> */}
               
               {/* Pagination component */}
               <div>
