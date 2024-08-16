@@ -1,59 +1,27 @@
 import React, { useEffect, useState } from "react";
-// import '../../components/Css/Article_01.css';
 import '../Articles/Article.css';
 import { SearchOutlined } from "@ant-design/icons";
-import { Button, Layout, Row, Col, Pagination } from "antd";
+import { Button, Layout, Pagination } from "antd";
 import Navbar from "../../components/Navbar/Navbar";
 import { GetArticleService } from "../../Services/ArticlesService";
 import CustomCard from "../../components/CustomCards/CustomCard";
-import {Card} from "antd";
+
 const { Content } = Layout;
-
-interface NewsCard {
-  title: string;
-  content: string;
-}
-
-
-// Sample data
-// const newsCards: NewsCard[] = [
-//   { title: "Business News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-//   { title: "Tech News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-//   { title: "Market Updates", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-//   { title: "Global News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-//   { title: "Economy", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-//   { title: "Health", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-//   { title: "Business News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-//   { title: "Tech News", content: "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations." },
-//   { title: "Market Updates", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-//   { title: "Business News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-//   { title: "Tech News", content: "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations." },
-//   { title: "Market Updates", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-//   { title: "Business News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-//   { title: "Tech News", content: "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations." },
-//   { title: "Market Updates", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-//   { title: "Business News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-//   { title: "Tech News", content: "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations." },
-//   { title: "Market Updates", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-//   { title: "Business News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-//   { title: "Tech News", content: "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations." },
-//   { title: "Market Updates", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-//   { title: "Business News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-//   { title: "Tech News", content: "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations." },
-//   { title: "Market Updates", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-// ];
 
 const Article: React.FC = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 9;
+  const [totalArticles, setTotalArticles] = useState(0);
+  //const pageSize = 10; // Set the cards per page
+  const [pageSize, setPageSize] = useState(8); // Manage page size in state
 
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const data = await GetArticleService(1, 10);
+        const data = await GetArticleService(currentPage, pageSize);
         setArticles(data);
+        setTotalArticles(200); // Set total articles if known, or dynamically based on API
       } catch (error) {
         console.error('Failed to fetch articles:', error);
       } finally {
@@ -61,24 +29,23 @@ const Article: React.FC = () => {
       }
     };
     fetchArticles();
-  }, []);
+  }, [currentPage,pageSize]);
 
-  console.log(articles);
+  // console.log(articles);
 
-  const startIndex = (currentPage - 1) * pageSize;
-  const endIndex = startIndex + pageSize;
-  // const currentCards = newsCards.slice(startIndex, endIndex);
-
-  const handlePageChange = (page: number) => {
+  const handlePageChange = (page: number, pageSize?: number) => {
     setCurrentPage(page);
+    if (pageSize) {
+      setPageSize(pageSize);
+    }
   };
 
-  return (
-<div>
-      {/* top-navbar */}
-      <Navbar />
-      {/* top-navbar */}
 
+
+
+  return (
+    <div>
+      <Navbar />
       <Layout>
         <Content
           style={{
@@ -112,35 +79,30 @@ const Article: React.FC = () => {
                 marginTop: "20px",
               }}
             >
-              {/* <Row gutter={[16, 16]}> */}
-                 <div className="Cards_Container"> 
-                   {articles.map((article: any, index: number) => (
-                        <CustomCard key={index} data={article} />
-                  ))}
-               </div> 
-                     
-                  
-              {/* </Row>
-               */}
+              <div className="Cards_Container"> 
+                {articles.map((article: any, index: number) => (
+                  <CustomCard key={index} data={article} />
+                ))}
+              </div> 
               {/* Pagination component */}
               <div>
               <Pagination
-                current={currentPage}
-                pageSize={pageSize}
-                total={articles.length}
-                onChange={handlePageChange}
-                style={{ marginTop: '20px' }}
-              />
+                  current={currentPage}
+                  pageSize={pageSize}
+                  total={totalArticles}
+                  onChange={handlePageChange}
+                  showSizeChanger={true}  // Enable the size changer dropdown
+                  style={{ marginTop: '20px' }}
+                />
               </div>
               {/* Pagination component */}
-             
             </div>
           </div>
         </Content>
       </Layout>
     </div>
-
   );
 };
 
 export default Article;
+
