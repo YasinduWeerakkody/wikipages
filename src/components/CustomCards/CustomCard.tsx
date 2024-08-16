@@ -10,27 +10,19 @@ interface NewsCard {
   content: string;
 }
 
-// Sample data array
-const newsCards: NewsCard[] = [
-  {
-    title: "Business News",
-    content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam."
-  },
-  // Add more objects as needed
-];
 
 // Handle preview, edit, and delete actions (add your own logic)
-const handlePreview = (index: number) => {
-  console.log(`Previewing item at index ${index}`);
-};
+// const handlePreview = (index: number) => {
+//   console.log(`Previewing item at index ${index}`);
+// };
 
-const handleEdit = (index: number) => {
-  console.log(`Editing item at index ${index}`);
-};
+// const handleEdit = (index: number) => {
+//   console.log(`Editing item at index ${index}`);
+// };
 
-const handleDelete = (index: number) => {
-  console.log(`Deleting item at index ${index}`);
-};
+// const handleDelete = (index: number) => {
+//   console.log(`Deleting item at index ${index}`);
+// };
 
 
 // Main component
