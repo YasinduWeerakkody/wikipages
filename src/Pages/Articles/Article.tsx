@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import '../Articles/Article.css';
+import "../Articles/Article.css";
 import { SearchOutlined } from "@ant-design/icons";
-import { Button, Layout, Pagination } from "antd";
+import { Button, Layout, Pagination, Spin } from "antd";
 import Navbar from "../../components/Navbar/Navbar";
 import { GetArticleService } from "../../Services/ArticlesService";
-import CustomCard from "../../components/CustomCards/CustomCard";
-
+import CustomCardArticle from "../../components/CustomCardsArticle/CustomCardArticle";
+import { useNavigate } from "react-router-dom";
 const { Content } = Layout;
 
 const Article: React.FC = () => {
@@ -13,8 +13,7 @@ const Article: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalArticles, setTotalArticles] = useState(0);
-  //const pageSize = 10; // Set the cards per page
-  const [pageSize, setPageSize] = useState(8); // Manage page size in state
+  const [pageSize, setPageSize] = useState(8);
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -22,14 +21,15 @@ const Article: React.FC = () => {
         const data = await GetArticleService(currentPage, pageSize);
         setArticles(data);
         setTotalArticles(200); // Set total articles if known, or dynamically based on API
+        // alert("Useeffewct called");
       } catch (error) {
-        console.error('Failed to fetch articles:', error);
+        console.error("Failed to fetch articles:", error);
       } finally {
         setLoading(false);
       }
     };
     fetchArticles();
-  }, [currentPage,pageSize]);
+  }, [currentPage, pageSize]);
 
   // console.log(articles);
 
@@ -40,9 +40,6 @@ const Article: React.FC = () => {
     }
   };
 
-
-
-
   return (
     <div>
       <Navbar />
@@ -51,16 +48,14 @@ const Article: React.FC = () => {
           style={{
             padding: "0 40px",
             minHeight: 280,
-            marginBottom: '30px',
-          }}
-        >
+            marginBottom: "30px",
+          }}>
           <p className="pu">WIKI / IYKONS Article</p>
 
           <div className="recent">
             <div
               className="back-header"
-              style={{ display: "flex", alignItems: "center" }}
-            >
+              style={{ display: "flex", alignItems: "center" }}>
               <p className="Backs">IYKONS Article</p>
               <div className="search" style={{ marginLeft: "auto" }}>
                 <Button>
@@ -77,22 +72,26 @@ const Article: React.FC = () => {
                 gap: "20px",
                 alignItems: "center",
                 marginTop: "20px",
-              }}
-            >
-              <div className="Cards_Container"> 
-                {articles.map((article: any, index: number) => (
-                  <CustomCard key={index} data={article} />
-                ))}
-              </div> 
+              }}>
+              {loading ? (
+                <Spin size="large" />
+              ) : (
+                <div className="Cards_Container">
+                  {articles.map((article: any, index: number) => (
+                    <CustomCardArticle key={index} data={article} />
+                  ))}
+                </div>
+              )}
+
               {/* Pagination component */}
               <div>
-              <Pagination
+                <Pagination
                   current={currentPage}
                   pageSize={pageSize}
                   total={totalArticles}
                   onChange={handlePageChange}
-                  showSizeChanger={true}  // Enable the size changer dropdown
-                  style={{ marginTop: '20px' }}
+                  showSizeChanger={true} // Enable the size changer dropdown
+                  style={{ marginTop: "20px" }}
                 />
               </div>
               {/* Pagination component */}
@@ -105,4 +104,3 @@ const Article: React.FC = () => {
 };
 
 export default Article;
-

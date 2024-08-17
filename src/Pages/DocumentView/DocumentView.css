@@ -1,0 +1,54 @@
+.DocumentView_top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+
+  transition: 0.3s;
+}
+.backButton:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.backButton img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+/*  START : View HTML CSS */
+.viewHtml {
+  /* padding: 20px; */
+  background-color: white;
+  text-align: left;
+}
+
+.viewhtml_heading {
+  /* all: unset; */
+  font-size: 2em;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.viewhtml_description {
+  /* all: unset; */
+  font-size: 1em;
+  color: #333;
+  line-height: 1.5;
+}
+/*  END : View HTML CSS*/
+
+@media (max-width: 768px) {
+  .DocumentView_top {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+}

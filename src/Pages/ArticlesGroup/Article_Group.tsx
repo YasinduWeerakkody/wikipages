@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import '../ArticlesGroup/ArticleGroup.css';
+import "../ArticlesGroup/ArticleGroup.css";
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Layout, Card, Row, Col, Pagination } from "antd";
 import Navbar from "../../components/Navbar/Navbar";
 import { GetArticlGroupeService } from "../../Services/ArticlesGroupService";
-import CustomCard from "../../components/CustomCards/CustomCard";
 import CustomCardArticleGroup from "../../components/CustomCardsArticleGroup/CustomCardArticleGroup";
 const { Content } = Layout;
 
@@ -15,30 +14,126 @@ interface NewsCard {
 
 //Sample data ---------------------------
 const newsCards: NewsCard[] = [
-    {  title: "Business News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-    {  title: "Tech News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-    {  title: "Market Updates", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-    {  title: "Global News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-    {  title: "Economy", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-    {  title: "Health", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-    {  title: "Business News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-    {  title: "Tech News", content: "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations." },
-    {  title: "Market Updates", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-    {  title: "Business News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-    {  title: "Tech News", content: "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations." },
-    {  title: "Market Updates", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-    {  title: "Business News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-    {  title: "Tech News", content: "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations." },
-    {  title: "Market Updates", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-    {  title: "Business News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-    {  title: "Tech News", content: "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations." },
-    {  title: "Market Updates", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-    {  title: "Business News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-    {  title: "Tech News", content: "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations." },
-    {  title: "Market Updates", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-    {  title: "Business News", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
-    {  title: "Tech News", content: "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations." },
-    {  title: "Market Updates", content: "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam." },
+  {
+    title: "Business News",
+    content:
+      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
+  },
+  {
+    title: "Tech News",
+    content:
+      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
+  },
+  {
+    title: "Market Updates",
+    content:
+      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
+  },
+  {
+    title: "Global News",
+    content:
+      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
+  },
+  {
+    title: "Economy",
+    content:
+      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
+  },
+  {
+    title: "Health",
+    content:
+      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
+  },
+  {
+    title: "Business News",
+    content:
+      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
+  },
+  {
+    title: "Tech News",
+    content:
+      "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations.",
+  },
+  {
+    title: "Market Updates",
+    content:
+      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
+  },
+  {
+    title: "Business News",
+    content:
+      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
+  },
+  {
+    title: "Tech News",
+    content:
+      "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations.",
+  },
+  {
+    title: "Market Updates",
+    content:
+      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
+  },
+  {
+    title: "Business News",
+    content:
+      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
+  },
+  {
+    title: "Tech News",
+    content:
+      "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations.",
+  },
+  {
+    title: "Market Updates",
+    content:
+      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
+  },
+  {
+    title: "Business News",
+    content:
+      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
+  },
+  {
+    title: "Tech News",
+    content:
+      "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations.",
+  },
+  {
+    title: "Market Updates",
+    content:
+      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
+  },
+  {
+    title: "Business News",
+    content:
+      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
+  },
+  {
+    title: "Tech News",
+    content:
+      "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations.",
+  },
+  {
+    title: "Market Updates",
+    content:
+      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
+  },
+  {
+    title: "Business News",
+    content:
+      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
+  },
+  {
+    title: "Tech News",
+    content:
+      "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations.",
+  },
+  {
+    title: "Market Updates",
+    content:
+      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
+  },
 ];
 
 const Article_Group: React.FC = () => {
@@ -47,20 +142,19 @@ const Article_Group: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const pageSize = 9;
 
-useEffect(() => {
-  try {
-    const fetchArticles = async () => {
-      const data = await GetArticlGroupeService(1, 9);
-      setArticleGroups(data);
-      console.log(data)
-    };
-    fetchArticles();
-  } catch (error) {
-    console.error('Failed to fetch articles:', error);
-    setLoading(false);
-  }
-}, []);
-
+  useEffect(() => {
+    try {
+      const fetchArticles = async () => {
+        const data = await GetArticlGroupeService(1, 9);
+        setArticleGroups(data);
+        console.log(data);
+      };
+      fetchArticles();
+    } catch (error) {
+      console.error("Failed to fetch articles:", error);
+      setLoading(false);
+    }
+  }, []);
 
   // Calculate the index range for the current page
   const startIndex = (currentPage - 1) * pageSize;
@@ -81,16 +175,14 @@ useEffect(() => {
           style={{
             padding: "0 40px",
             minHeight: 280,
-            marginBottom: '30px',
-          }}
-        >
+            marginBottom: "30px",
+          }}>
           <p className="pu">WIKI / IYKONS Article Group</p>
 
           <div className="recent">
             <div
               className="back-header"
-              style={{ display: "flex", alignItems: "center" }}
-            >
+              style={{ display: "flex", alignItems: "center" }}>
               <p className="Backs">IYKONS Article Group</p>
               <div className="search" style={{ marginLeft: "auto" }}>
                 <Button>
@@ -107,28 +199,26 @@ useEffect(() => {
                 gap: "20px",
                 alignItems: "center",
                 marginTop: "20px",
-              }}
-            >
+              }}>
               {/* <Row gutter={[16, 16]}> */}
-              <div className="Cards_Container"> 
-              {articleGroups.map((article: any, index: number) => (
-                        <CustomCardArticleGroup key={index} data={article} />
-                  ))}
-                   </div> 
+              <div className="Cards_Container">
+                {articleGroups.map((article: any, index: number) => (
+                  <CustomCardArticleGroup key={index} data={article} />
+                ))}
+              </div>
               {/* </Row> */}
-              
+
               {/* Pagination component */}
               <div>
-              <Pagination
-                current={currentPage}
-                pageSize={pageSize}
-                total={newsCards.length}
-                onChange={handlePageChange}
-                style={{ marginTop: '20px' }}
-              />
+                <Pagination
+                  current={currentPage}
+                  pageSize={pageSize}
+                  total={newsCards.length}
+                  onChange={handlePageChange}
+                  style={{ marginTop: "20px" }}
+                />
               </div>
               {/* Pagination component */}
-             
             </div>
           </div>
         </Content>
