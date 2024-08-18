@@ -7,7 +7,6 @@
 .backButton {
   display: flex;
   align-items: center;
-
   transition: 0.3s;
 }
 .backButton:hover {
@@ -19,6 +18,10 @@
   width: 30px;
   height: 30px;
   margin-right: 10px;
+}
+
+.highlight {
+  background-color: yellow;
 }
 
 /*  START : View HTML CSS */
