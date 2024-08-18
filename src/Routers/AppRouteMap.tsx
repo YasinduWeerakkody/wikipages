@@ -3,7 +3,8 @@ import { Route, Routes } from "react-router-dom";
 import Article from "../Pages/Articles/Article";
 import Article_Group from "../Pages/ArticlesGroup/Article_Group";
 import Wiki from "../Pages/Wiki/Wiki";
-import DocumentView from "../Pages/DocumentView/DocumentView";
+import ArticlesView from "../Pages/ArticleGroupView/ArticleGroupView";
+import ArticleGroupView from "../Pages/ArticleGroupView/ArticleGroupView";
 const routesList = [
   {
     path: "/",
@@ -23,7 +24,12 @@ const routesList = [
   },
   {
     path: "/WIKI/IYKONSArticle/View",
-    component: DocumentView,
+    component: ArticlesView,
+    key: "/WIKI/IYKONS Article",
+  },
+  {
+    path: "/WIKI/IYKONSArticleGroup/View",
+    component: ArticleGroupView,
     key: "/WIKI/IYKONS Article",
   },
 ];

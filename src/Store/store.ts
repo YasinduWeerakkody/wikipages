@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import ArticleReducer from "../Reducer/ArticleSlice"; // Import the rootReducer correctly
-
+import ArticleGroupReducer from "../Reducer/ArticleGroupSlice";
 const store = configureStore({
   reducer: {
-    articles: ArticleReducer, // Use the rootReducer in the store
+    articles: ArticleReducer,
+    articleGroups: ArticleGroupReducer,
   }, // Use the rootReducer in the store
 });
 

@@ -1,0 +1,27 @@
+.searchDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchStyles input,
+.searchStyles button {
+  background: #eeeff2;
+}
+.noResultsFound {
+  color: red;
+}
+.customSearchButton {
+  background-color: #1890ff; /* Ant Design primary blue color */
+  border-color: #1890ff;
+  color: white;
+
+  &:hover {
+    background-color: #40a9ff; /* Lighten the blue on hover */
+    border-color: #40a9ff;
+  }
+
+  &:focus {
+    background-color: #096dd9; /* Darken the blue when focused */
+    border-color: #096dd9;
+  }
+}
