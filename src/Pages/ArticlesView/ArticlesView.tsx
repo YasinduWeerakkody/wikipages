@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import parse from "html-react-parser";
-import { Layout, Button, Pagination, Input } from "antd";
+import { Layout } from "antd";
 import Navbar from "../../components/Navbar/Navbar";
 import { Content } from "antd/es/layout/layout";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +10,7 @@ import { resetArticle } from "../../Reducer/ArticleSlice";
 import backArrowIcon from "../../Assets/Images/backArrow.png";
 import CustomSearchInputText from "../../components/CustomSearchInputText/CustomSearchInputText";
 import "./DocumentView.css";
-import Search from "antd/es/transfer/search";
+
 const DocumentView: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
