@@ -13,8 +13,7 @@ const Article: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalArticles, setTotalArticles] = useState(0);
-  //const pageSize = 10; // Set the cards per page
-  const [pageSize, setPageSize] = useState(8); // Manage page size in state
+  const [pageSize, setPageSize] = useState(9); // Manage page size in state
 
   useEffect(() => {
     const fetchArticles = async () => {

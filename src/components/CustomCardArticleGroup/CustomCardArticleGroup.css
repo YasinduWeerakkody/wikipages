@@ -1,0 +1,17 @@
+.card{
+    /* background-color: red; */
+    height:200px;
+    width: 350px;
+    margin: 10px;
+    transition: 0.2s;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for the 3D effect */
+    border-radius: 8px; /* Rounded corners */
+  }
+  
+  .card:hover{
+    transform: scale(1.03); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
