@@ -9,9 +9,9 @@ import { RootState } from "../../Store/store";
 import { resetArticle } from "../../Reducer/ArticleSlice";
 import backArrowIcon from "../../Assets/Images/backArrow.png";
 import CustomSearchInputText from "../../components/CustomSearchInputText/CustomSearchInputText";
-import "./DocumentView.css";
+import "./ArticleView.css";
 
-const DocumentView: React.FC = () => {
+const ArticleView: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const DocumentData = useSelector((state: RootState) => state.articles);
@@ -110,4 +110,4 @@ const DocumentView: React.FC = () => {
   );
 };
 
-export default DocumentView;
+export default ArticleView;

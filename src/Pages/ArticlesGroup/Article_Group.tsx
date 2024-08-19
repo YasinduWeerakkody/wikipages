@@ -137,40 +137,47 @@ const newsCards: NewsCard[] = [
 ];
 
 const Article_Group: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState(1);
   const [articleGroups, setArticleGroups] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
-  const pageSize = 9;
+  const [totalArticles, setTotalArticles] = useState(0);
+  const [pageSize, setPageSize] = useState(8); // Manage page size in state
+  // const pageSize = 9;
 
   useEffect(() => {
-    try {
-      const fetchArticles = async () => {
-        const data = await GetArticlGroupeService(1, 9);
+    const fetchArticles = async () => {
+      try {
+        const data = await GetArticlGroupeService(currentPage, pageSize);
         setArticleGroups(data);
-        console.log(data);
-      };
-      fetchArticles();
-    } catch (error) {
-      console.error("Failed to fetch articles:", error);
-      setLoading(false);
-    }
-  }, []);
+        setTotalArticles(200);
+      } catch (error) {
+        console.error("Failed to fetch articles groups:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArticles();
+  }, [currentPage, pageSize]);
 
   // Calculate the index range for the current page
-  const startIndex = (currentPage - 1) * pageSize;
-  const endIndex = startIndex + pageSize;
+  // const startIndex = (currentPage - 1) * pageSize;
+  // const endIndex = startIndex + pageSize;
 
   // Slice the newsCards array to only show the items for the current page
-  const currentCards = newsCards.slice(startIndex, endIndex);
+  // const currentCards = newsCards.slice(startIndex, endIndex);
 
-  const handlePageChange = (page: number) => {
+  const handlePageChange = (page: number, pageSize?: number) => {
     setCurrentPage(page);
+    if (pageSize) {
+      setPageSize(pageSize);
+    }
   };
 
   return (
     <div>
       <Navbar />
-      <Layout>
+      <Layout className="articleGroup_layout">
         <Content
           style={{
             padding: "0 40px",
@@ -213,8 +220,9 @@ const Article_Group: React.FC = () => {
                 <Pagination
                   current={currentPage}
                   pageSize={pageSize}
-                  total={newsCards.length}
+                  total={totalArticles}
                   onChange={handlePageChange}
+                  showSizeChanger={true}
                   style={{ marginTop: "20px" }}
                 />
               </div>
