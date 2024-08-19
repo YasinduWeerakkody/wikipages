@@ -3,3 +3,53 @@
   outline: none;
   border: none;
 }
+.recent_cards {
+  display: grid;
+  grid-template-columns: 1fr; /* Each card will take the full width */
+  /* gap: 20px; */
+}
+
+.recent_card {
+  /* border: 1px solid #ccc; */
+  /* padding: 10px; */
+
+  border-radius: 8px;
+}
+.recent_cardInfo {
+  padding: 5px 10px 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 
+.recent-articles {
+  background: #fff;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.379);
+  border-radius: 10px;
+}
+
+.recent-articles ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recent-articles li {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+
+
+.history-button {
+  display: block;
+  margin: 16px auto;
+  width: 50%;
+  max-width: 200px;
+  border-color: rgb(7, 71, 182);
+  color: rgb(7, 71, 182);
+  text-align: center;
+} */

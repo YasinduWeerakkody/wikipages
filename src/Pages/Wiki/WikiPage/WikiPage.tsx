@@ -28,6 +28,9 @@ const WikiPage: React.FC = () => {
       case "ArticleGroup":
         navigate("/WIKI/IYKONSArticleGroup");
         break;
+      case "History":
+        navigate("/WIKI/History");
+        break;
     }
   };
 
@@ -61,13 +64,13 @@ const WikiPage: React.FC = () => {
               {/* FlexBox -Articles */}
               <div className="articles">
                 <div
-                  onClick={(e) => HandleClick("Article")}
+                  onClick={() => HandleClick("Article")}
                   className="article-box">
                   <img src={img2} alt="Article Icon" className="article-img" />
                   <h3 className="article-para">IYKONS Article</h3>
                 </div>
                 <div
-                  onClick={(e) => HandleClick("ArticleGroup")}
+                  onClick={() => HandleClick("ArticleGroup")}
                   className="article-box">
                   <img src={img2} alt="Article Icon" className="article-img" />
                   <h3 className="article-para">IYKONS Article Group</h3>
@@ -75,33 +78,15 @@ const WikiPage: React.FC = () => {
               </div>
               {/* FlexBox -Articles */}
 
-              <Recent />
               {/* Recent START */}
-              {/* <div className="recent-list">
-                <p className="topic">Recent</p>
-                <ul>
-                  {recentItems.map((item, index) => (
-                    <li
-                      key={index}
-                      style={{
-                        backgroundColor:
-                          index % 2 === 0 ? "#e6f7ff" : "#ffffff",
-                        padding: "10px",
-                        borderRadius: "5px",
-                        marginBottom: "5px",
-                        textAlign: "left",
-                      }}>
-                      {item.title}
-                      <span
-                        className="time"
-                        style={{ float: "right", color: "#000" }}>
-                        {item.time}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                <Button className="history-button">See more history</Button>
-              </div> */}
+              <Recent />
+
+              <Button
+                className="history-button"
+                onClick={() => HandleClick("History")}>
+                See more history
+              </Button>
+
               {/* Recent END */}
             </div>
           </Content>
