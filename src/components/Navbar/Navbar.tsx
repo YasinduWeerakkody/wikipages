@@ -7,17 +7,22 @@ import {
 } from "@ant-design/icons";
 import { Button, Avatar, Layout } from "antd";
 
+interface NavbarProps {
+  onClick?: () => void;
+}
 
-const Navbar: React.FC = () => {
+const Navbar: React.FC<NavbarProps> = ({ onClick }) => {
+ 
+  
   return (
-    <div>
+    <div >
       <div className="navbar">
         <div className="navbar_left"> 
         <div className="navbar_left_img">
         <img
             src={logo}
             alt="IYKONNECT 3.0"
-
+            onClick={onClick} style={{ cursor: "pointer" }}
           /> 
         </div>
         </div>

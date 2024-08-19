@@ -5,6 +5,7 @@ import { Button, Layout, Card, Row, Col, Pagination } from "antd";
 import Navbar from "../../components/Navbar/Navbar";
 import { GetArticlGroupeService } from "../../Services/ArticlesGroupService";
 import CustomCardArticleGroup from "../../components/CustomCardsArticleGroup/CustomCardArticleGroup";
+import { useNavigate } from "react-router-dom";
 const { Content } = Layout;
 
 interface NewsCard {
@@ -137,6 +138,8 @@ const newsCards: NewsCard[] = [
 ];
 
 const Article_Group: React.FC = () => {
+  const navigate = useNavigate();
+  const [currentPage, setCurrentPage] = useState(1);
   const [articleGroups, setArticleGroups] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
@@ -175,9 +178,12 @@ const Article_Group: React.FC = () => {
   };
 
   return (
-    <div>
+
       <Navbar />
       <Layout className="articleGroup_layout">
+      <Navbar onClick={() => navigate("/")} />
+      <Layout>
+
         <Content
           style={{
             padding: "0 40px",
