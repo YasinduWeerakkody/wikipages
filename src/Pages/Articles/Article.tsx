@@ -9,11 +9,22 @@ import { useNavigate } from "react-router-dom";
 const { Content } = Layout;
 
 const Article: React.FC = () => {
+  const navigate = useNavigate();
+
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalArticles, setTotalArticles] = useState(0);
   const [pageSize, setPageSize] = useState(8);
+
+  // const HandleClick = (SelectedOption: string) => {
+  //   switch (SelectedOption) {
+  //     case "/":
+  //       navigate("/");
+  //       break;
+  //   }
+  // };
+
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -42,7 +53,9 @@ const Article: React.FC = () => {
 
   return (
     <div>
-      <Navbar />
+      
+      <Navbar  onClick={() => navigate("/")} />
+    
       <Layout>
         <Content
           style={{
