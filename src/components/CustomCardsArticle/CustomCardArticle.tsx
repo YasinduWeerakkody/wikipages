@@ -11,7 +11,7 @@ const CustomCardArticle: React.FC<{ data: any }> = (props) => {
   const { data } = props;
   const navigate = useNavigate();
   const articlesfrom = useSelector((state: RootState) => state.articles);
-  // console.log("+++++++++++", articlesfrom);
+
   const dispatch = useDispatch();
 
   const HandleCardClick = () => {

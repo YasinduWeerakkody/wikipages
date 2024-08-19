@@ -6,140 +6,11 @@ import Navbar from "../../components/Navbar/Navbar";
 import { GetArticlGroupeService } from "../../Services/ArticlesGroupService";
 import CustomCardArticleGroup from "../../components/CustomCardsArticleGroup/CustomCardArticleGroup";
 import { useNavigate } from "react-router-dom";
+import CustomSearchInputText from "../../components/CustomSearchInputText/CustomSearchInputText";
 const { Content } = Layout;
-
-interface NewsCard {
-  title: string;
-  content: string;
-}
-
-//Sample data ---------------------------
-const newsCards: NewsCard[] = [
-  {
-    title: "Business News",
-    content:
-      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
-  },
-  {
-    title: "Tech News",
-    content:
-      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
-  },
-  {
-    title: "Market Updates",
-    content:
-      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
-  },
-  {
-    title: "Global News",
-    content:
-      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
-  },
-  {
-    title: "Economy",
-    content:
-      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
-  },
-  {
-    title: "Health",
-    content:
-      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
-  },
-  {
-    title: "Business News",
-    content:
-      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
-  },
-  {
-    title: "Tech News",
-    content:
-      "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations.",
-  },
-  {
-    title: "Market Updates",
-    content:
-      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
-  },
-  {
-    title: "Business News",
-    content:
-      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
-  },
-  {
-    title: "Tech News",
-    content:
-      "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations.",
-  },
-  {
-    title: "Market Updates",
-    content:
-      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
-  },
-  {
-    title: "Business News",
-    content:
-      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
-  },
-  {
-    title: "Tech News",
-    content:
-      "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations.",
-  },
-  {
-    title: "Market Updates",
-    content:
-      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
-  },
-  {
-    title: "Business News",
-    content:
-      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
-  },
-  {
-    title: "Tech News",
-    content:
-      "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations.",
-  },
-  {
-    title: "Market Updates",
-    content:
-      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
-  },
-  {
-    title: "Business News",
-    content:
-      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
-  },
-  {
-    title: "Tech News",
-    content:
-      "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations.",
-  },
-  {
-    title: "Market Updates",
-    content:
-      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
-  },
-  {
-    title: "Business News",
-    content:
-      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
-  },
-  {
-    title: "Tech News",
-    content:
-      "Members of Parliament (MPs)  Here s an overview of the key concerns and recommendations.",
-  },
-  {
-    title: "Market Updates",
-    content:
-      "Adani Ports announced an increased investment of $1.2 billion for a new transshipment terminal in Vizhinjam.",
-  },
-];
 
 const Article_Group: React.FC = () => {
   const navigate = useNavigate();
-  const [currentPage, setCurrentPage] = useState(1);
   const [articleGroups, setArticleGroups] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
@@ -163,13 +34,6 @@ const Article_Group: React.FC = () => {
     fetchArticles();
   }, [currentPage, pageSize]);
 
-  // Calculate the index range for the current page
-  // const startIndex = (currentPage - 1) * pageSize;
-  // const endIndex = startIndex + pageSize;
-
-  // Slice the newsCards array to only show the items for the current page
-  // const currentCards = newsCards.slice(startIndex, endIndex);
-
   const handlePageChange = (page: number, pageSize?: number) => {
     setCurrentPage(page);
     if (pageSize) {
@@ -177,12 +41,13 @@ const Article_Group: React.FC = () => {
     }
   };
 
-  return (
+  //Function handles search btn click: Fetching articles and rerender the page
+  const HandleSearchClick = () => {};
 
-      <Navbar />
+  return (
+    <div>
       <Layout className="articleGroup_layout">
-      <Navbar onClick={() => navigate("/")} />
-      <Layout>
+        <Navbar />
 
         <Content
           style={{
@@ -198,10 +63,10 @@ const Article_Group: React.FC = () => {
               style={{ display: "flex", alignItems: "center" }}>
               <p className="Backs">IYKONS Article Group</p>
               <div className="search" style={{ marginLeft: "auto" }}>
-                <Button>
-                  <p className="searchsize">Search Your keyword & enter </p>
-                  {<SearchOutlined className="searchbody" />}
-                </Button>
+                <CustomSearchInputText
+                  placeholder="Search Article Group"
+                  onclick={HandleSearchClick}
+                />
               </div>
             </div>
             <div

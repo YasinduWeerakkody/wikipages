@@ -1,7 +1,7 @@
 .card {
   /* background-color: red; */
-  height: 200px;
-  width: 350px;
+  height: 220px;
+  width: 400px;
   margin: 10px;
   transition: 0.2s;
   overflow: hidden;

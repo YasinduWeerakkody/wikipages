@@ -5,7 +5,7 @@ import { SearchOutlined } from "@ant-design/icons";
 const { Search } = Input;
 
 interface CustomSearchInputText {
-  placeHolder?: string;
+  placeholder?: string;
   width?: string;
   onSearch?: (data: any) => void;
   onChange?: (data: any) => void;
@@ -19,31 +19,36 @@ const CustomSearchInputText = (
   props: CustomSearchInputText
 ): React.ReactElement => {
   const {
-    placeHolder = "To filter the clients by number / name",
+    placeholder = "To filter the clients by number / name",
     onSearch,
     onChange,
     onclick,
     noSearchResults,
   } = props;
+  const checkkey = (e: any) => {
+    if (e.key === "Enter") {
+      onclick && onclick();
+    }
+  };
 
-  const suffix = (
-    <Button className="customSearchButton" onClick={onclick}>
-      <SearchOutlined />
-      {/* Search */}
-    </Button>
-  );
   return (
-    <div className="searchDiv">
-      <Search
-        placeholder={placeHolder}
-        onChange={onChange}
-        onSearch={onSearch}
-        style={{ width: "100%" }}
-        enterButton={suffix}
-        className="searchStyles"
-        size="large"
-        // prefix={<SearchOutlined className="search-icon" />}
-      />
+    <div className="search">
+      <div className="search_InputBtn_wrapper">
+        <input
+          placeholder={placeholder}
+          onChange={onChange}
+          className="search_InputBtn_input"
+          onKeyDown={(e) => checkkey(e)}
+
+          // size="large"
+          // prefix={<SearchOutlined className="search-icon" />}
+        />
+        <button className="search_InputBtn_button" onClick={onclick}>
+          <SearchOutlined />
+          {/* Search */}
+        </button>
+      </div>
+
       {noSearchResults && (
         <div className="noResultsFound">No results found. Try again?</div>
       )}

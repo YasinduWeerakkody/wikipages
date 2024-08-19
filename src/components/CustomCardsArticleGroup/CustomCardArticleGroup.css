@@ -1,8 +1,8 @@
 .card {
-  /* background-color: red; */
-  height: 200px;
-  width: 350px;
-  margin: 20px;
+  margin-bottom: 10px;
+  height: 220px;
+  width: 400px;
+
   transition: 0.2s;
   overflow: hidden;
   cursor: pointer;
@@ -10,7 +10,16 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for the 3D effect */
   border-radius: 8px; /* Rounded corners */
 }
-
+.card p {
+  /* background-color: pink; */
+  line-height: 1.4;
+  margin-bottom: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
 .card:hover {
   transform: scale(1.03);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);

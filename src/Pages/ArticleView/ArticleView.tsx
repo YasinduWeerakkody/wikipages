@@ -82,15 +82,8 @@ const ArticleView: React.FC = () => {
                 <h3>Back</h3>
               </div>
               <div className="search" style={{ marginLeft: "auto" }}>
-                {/* <Input
-                  placeholder="Search Your Keyword"
-                  value={searchTerm}
-                  onChange={HandleSearchOnchange}
-                  prefix={<SearchOutlined />}
-                  style={{ width: 300 }}
-                /> */}
                 <CustomSearchInputText
-                  placeHolder="Search Your Keyword and Press Enter"
+                  placeholder="Search Your Keyword and Press Enter"
                   onChange={HandleSearchOnchange}
                   noSearchResults={noSearchResults}
                   onclick={HandleSearchClick}
