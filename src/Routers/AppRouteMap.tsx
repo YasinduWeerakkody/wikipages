@@ -2,13 +2,13 @@ import NewDashboard from "../components/Dashboard/newDashboard";
 import { Route, Routes } from "react-router-dom";
 import Article from "../Pages/Articles/Article";
 import Article_Group from "../Pages/ArticlesGroup/Article_Group";
-import Wiki from "../Pages/Wiki/Wiki";
+import WikiPage from "../Pages/Wiki/WikiPage/WikiPage";
 import ArticleView from "../Pages/ArticleView/ArticleView";
 import ArticleGroupView from "../Pages/ArticleGroupView/ArticleGroupView";
 const routesList = [
   {
     path: "/",
-    component: Wiki,
+    component: WikiPage,
     key: "/",
   },
   {

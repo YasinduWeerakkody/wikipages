@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import "../Wiki/Wiki.css";
+import "./WikiPage.css";
 import { Button, Layout, Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
-import img2 from "../../Assets/Images/Frame.png";
-import HeaderNav from "../../components/Navbar/Navbar";
+import img2 from "../../../Assets/Images/Frame.png";
+import Navbar from "../../../components/Navbar/Navbar";
 import { useNavigate } from "react-router-dom";
-
+import CustomSearchInputText from "../../../components/CustomSearchInputText/CustomSearchInputText";
+import Recent from "../Recent/Recent";
 const { Header, Sider, Content } = Layout;
 
-const Wiki: React.FC = () => {
+const WikiPage: React.FC = () => {
   const navigate = useNavigate();
   const [position, setPosition] = useState<"start" | "end">("end");
 
@@ -19,7 +20,6 @@ const Wiki: React.FC = () => {
     { title: "Covid-19 & BR", time: "03 day ago" },
   ];
 
-  //Add
   const HandleClick = (SelectedOption: string) => {
     switch (SelectedOption) {
       case "Article":
@@ -31,11 +31,12 @@ const Wiki: React.FC = () => {
     }
   };
 
+  //Function handles search btn click: Fetching articles and rerender the page
+  const HandleSearchClick = () => {};
+
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      {/* top-navbar */}
-      <HeaderNav />
-      {/* top-navbar */}
+      <Navbar />
 
       {/* WIKI - Dashboard */}
       <Layout>
@@ -47,16 +48,13 @@ const Wiki: React.FC = () => {
               <div className="article-box1">
                 <h1>IYKONS WIKI</h1>
                 <p className="para1">
-                  {" "}
                   One-step Resource for the staff members of IYKONS
                 </p>
                 <div className="search-button">
-                  <Button
-                    icon={<SearchOutlined />}
-                    iconPosition={position}
-                    className="si">
-                    <p className="para2">Search your keyword & enter</p>
-                  </Button>
+                  <CustomSearchInputText
+                    placeholder="Search your keyword & enter"
+                    onclick={HandleSearchClick}
+                  />
                 </div>
               </div>
 
@@ -77,7 +75,9 @@ const Wiki: React.FC = () => {
               </div>
               {/* FlexBox -Articles */}
 
-              <div className="recent-list">
+              <Recent />
+              {/* Recent START */}
+              {/* <div className="recent-list">
                 <p className="topic">Recent</p>
                 <ul>
                   {recentItems.map((item, index) => (
@@ -101,7 +101,8 @@ const Wiki: React.FC = () => {
                   ))}
                 </ul>
                 <Button className="history-button">See more history</Button>
-              </div>
+              </div> */}
+              {/* Recent END */}
             </div>
           </Content>
         </Layout>
@@ -112,4 +113,4 @@ const Wiki: React.FC = () => {
   );
 };
 
-export default Wiki;
+export default WikiPage;

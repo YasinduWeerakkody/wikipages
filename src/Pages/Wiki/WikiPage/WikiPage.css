@@ -1,4 +1,3 @@
-
 /* Header Styles */
 .header {
   display: flex;
@@ -36,8 +35,6 @@
   margin-left: 8px;
 }
 /* Header Styles - END */
-
-
 
 /* Layout and Content Styles */
 
@@ -89,7 +86,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  max-width: 400px;
+  max-width: 650px;
 }
 
 .si {
@@ -112,6 +109,7 @@
 }
 
 .article-box {
+  cursor: pointer;
   flex: 1;
   min-width: 300px;
   max-width: 48%;
@@ -123,8 +121,8 @@
   border-radius: 10px;
   transition: 0.2s;
 }
-.article-box:hover{
-  transform: scale(1.03); 
+.article-box:hover {
+  transform: scale(1.03);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
@@ -188,20 +186,20 @@
 
 @media (max-width: 768px) {
   .articles {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .article-box {
-      max-width: 100%;
-      margin: 8px 0;
+    max-width: 100%;
+    margin: 8px 0;
   }
 
   .si {
-      max-width: 100%;
+    max-width: 100%;
   }
 
   .history-button {
-      width: 100%;
+    width: 100%;
   }
 }

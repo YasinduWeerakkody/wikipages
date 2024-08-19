@@ -6,6 +6,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import { GetArticleService } from "../../Services/ArticlesService";
 import CustomCardArticle from "../../components/CustomCardsArticle/CustomCardArticle";
 import { useNavigate } from "react-router-dom";
+import CustomSearchInputText from "../../components/CustomSearchInputText/CustomSearchInputText";
 const { Content } = Layout;
 
 const Article: React.FC = () => {
@@ -15,16 +16,7 @@ const Article: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalArticles, setTotalArticles] = useState(0);
-  const [pageSize, setPageSize] = useState(8);
-
-  // const HandleClick = (SelectedOption: string) => {
-  //   switch (SelectedOption) {
-  //     case "/":
-  //       navigate("/");
-  //       break;
-  //   }
-  // };
-
+  const [pageSize, setPageSize] = useState(9);
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -32,7 +24,6 @@ const Article: React.FC = () => {
         const data = await GetArticleService(currentPage, pageSize);
         setArticles(data);
         setTotalArticles(200); // Set total articles if known, or dynamically based on API
-        // alert("Useeffewct called");
       } catch (error) {
         console.error("Failed to fetch articles:", error);
       } finally {
@@ -42,8 +33,7 @@ const Article: React.FC = () => {
     fetchArticles();
   }, [currentPage, pageSize]);
 
-  // console.log(articles);
-
+  //Function to handle Pagination
   const handlePageChange = (page: number, pageSize?: number) => {
     setCurrentPage(page);
     if (pageSize) {
@@ -51,11 +41,11 @@ const Article: React.FC = () => {
     }
   };
 
+  //Function handles search btn click: Fetching articles and rerender the page
+  const HandleSearchClick = () => {};
   return (
     <div>
-      
-      <Navbar  onClick={() => navigate("/")} />
-    
+      <Navbar />
       <Layout>
         <Content
           style={{
@@ -64,17 +54,16 @@ const Article: React.FC = () => {
             marginBottom: "30px",
           }}>
           <p className="pu">WIKI / IYKONS Article</p>
-
           <div className="recent">
             <div
               className="back-header"
               style={{ display: "flex", alignItems: "center" }}>
               <p className="Backs">IYKONS Article</p>
               <div className="search" style={{ marginLeft: "auto" }}>
-                <Button>
-                  <p className="searchsize">Search Your keyword & enter </p>
-                  {<SearchOutlined className="searchbody" />}
-                </Button>
+                <CustomSearchInputText
+                  placeholder="Search Article"
+                  onclick={HandleSearchClick}
+                />
               </div>
             </div>
             <div
@@ -101,7 +90,7 @@ const Article: React.FC = () => {
                 <Pagination
                   current={currentPage}
                   pageSize={pageSize}
-                  total={totalArticles}
+                  total={totalArticles} //totalArticles
                   onChange={handlePageChange}
                   showSizeChanger={true} // Enable the size changer dropdown
                   style={{ marginTop: "20px" }}

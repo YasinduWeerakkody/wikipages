@@ -10,6 +10,7 @@ import { resetArticle } from "../../Reducer/ArticleSlice";
 import backArrowIcon from "../../Assets/Images/backArrow.png";
 import CustomSearchInputText from "../../components/CustomSearchInputText/CustomSearchInputText";
 import "./ArticleGroupView.css";
+import { resetArticleGroup } from "../../Reducer/ArticleGroupSlice";
 const ArticleGroupView = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -30,8 +31,8 @@ const ArticleGroupView = () => {
   //This Function Handles the <- Back btn click
   //On Click it navigtes to the IYKONS Article Group page
   const HandleBackClick = () => {
-    dispatch(resetArticle());
-    navigate("/WIKI/IYKONSArticle");
+    dispatch(resetArticleGroup());
+    navigate("/WIKI/IYKONSArticleGroup");
   };
   //This Function Handles the Search Input Change Event
   const HandleSearchOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -86,7 +87,7 @@ const ArticleGroupView = () => {
                   style={{ width: 300 }}
                 /> */}
                 <CustomSearchInputText
-                  placeHolder="Search Your Keyword and Press Enter"
+                  placeholder="Search Your Keyword & Enter"
                   onChange={HandleSearchOnchange}
                   noSearchResults={noSearchResults}
                   onclick={HandleSearchClick}

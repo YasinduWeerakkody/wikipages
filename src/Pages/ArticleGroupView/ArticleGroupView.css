@@ -51,7 +51,9 @@
   .DocumentView_top {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 20px;
+    /* background-color: red; */
   }
 }

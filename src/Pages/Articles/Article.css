@@ -1,72 +1,67 @@
-.Cards_Container{
-  display:flex;
+.Cards_Container {
+  display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-wrap: wrap;
- 
 }
 
-.displayoute{
+.displayoute {
   color: #999;
   font-weight: 600;
   font-size: large;
   text-align: left;
-  
 }
-
 
 /* Responsive Adjustments */
 
-  @media (max-width: 768px) {
-      .back-header {
-        flex-direction: column; 
-        align-items: flex-start;
-      }
-    
-      .search {
-        margin-left: 0;
-        margin-top: 16px; 
-        width: 100%; 
-      }
-    
-      .Backs {
-        margin-bottom: 16px; 
-      }
-    }
-    
+@media (max-width: 768px) {
+  .back-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search {
+    margin-left: 0;
+    margin-top: 16px;
+    width: 100%;
+  }
+
+  .Backs {
+    margin-bottom: 16px;
+  }
+}
+
 /* Card paragraph styles */
-  .par{
-    color: #000000;
-    font-weight: 600;
-    font-size: 15px;
-    text-align: left;
-  }
-  .parOne{
-    text-align: left;
-    color: #999;
-  }
+.par {
+  color: #000000;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: left;
+}
+.parOne {
+  text-align: left;
+  color: #999;
+}
 
-  /* Main Topic - Wiki / Iykons Article */
-  
-  /* topic - IYKONS Articles */
-  .Backs{
-    font-weight: 600;
-    color: #0971f0;
-    font-size: 25px;
-  }
+/* Main Topic - Wiki / Iykons Article */
 
-    /* Recent Articles Section Styles */
-    .recent{
-    background: #fff;
-    padding: 30px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.379);
-    border-radius: 10px;
-    }
+/* topic - IYKONS Articles */
+.Backs {
+  font-weight: 600;
+  color: #0971f0;
+  font-size: 25px;
+}
 
+/* Recent Articles Section Styles */
+.recent {
+  background: #fff;
+  padding: 30px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.379);
+  border-radius: 10px;
+}
 
-    /* Recent Search buttom Section Styles */
-  .searchsize{
-    margin-right: 15vh;
-    color: #999;
-  }
-
+/* Recent Search buttom Section Styles */
+.searchsize {
+  margin-right: 15vh;
+  color: #999;
+}
