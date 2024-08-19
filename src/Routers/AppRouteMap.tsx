@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Article from "../Pages/Articles/Article";
 import Article_Group from "../Pages/ArticlesGroup/Article_Group";
 import Wiki from "../Pages/Wiki/Wiki";
-import ArticlesView from "../Pages/ArticleGroupView/ArticleGroupView";
+import ArticleView from "../Pages/ArticleView/ArticleView";
 import ArticleGroupView from "../Pages/ArticleGroupView/ArticleGroupView";
 const routesList = [
   {
@@ -24,7 +24,7 @@ const routesList = [
   },
   {
     path: "/WIKI/IYKONSArticle/View",
-    component: ArticlesView,
+    component: ArticleView,
     key: "/WIKI/IYKONS Article",
   },
   {

@@ -1,61 +1,58 @@
 /* Responsive Adjustments */
 
 @media (max-width: 768px) {
-    .back-header {
-      flex-direction: column; 
-      align-items: flex-start;
-    }
-  
-    .search {
-      margin-left: 0;
-      margin-top: 16px; 
-      width: 100%; 
-    }
-  
-    .Backs {
-      margin-bottom: 16px; 
-    }
+  .back-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
+
+  .search {
+    margin-left: 0;
+    margin-top: 16px;
+    width: 100%;
+  }
+
+  .Backs {
+    margin-bottom: 16px;
+  }
+}
+
 /* Card paragraph styles */
-.par{
+.par {
   color: #000000;
   font-weight: 600;
   font-size: 15px;
   text-align: left;
 }
-.parOne{
+.parOne {
   text-align: left;
   color: #999;
 }
 
 /* Main Topic - Wiki / Iykons Article Group */
-.pu{
-    color: #999;
-    font-weight: 600;
-    font-size: large;
-    text-align: left;
-    
+.pu {
+  color: #999;
+  font-weight: 600;
+  font-size: large;
+  text-align: left;
 }
 /* topic - IYKONS Articles Group */
-.Backs{
+.Backs {
   font-weight: 600;
   color: #0971f0;
   font-size: 25px;
 }
 
-  /* Recent Articles Section Styles */
-  .recent{
+/* Recent Articles Section Styles */
+.recent {
   background: #fff;
   padding: 30px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.379);
   border-radius: 10px;
-  }
+}
 
-
-  /* Recent Search buttom Section Styles */
-.searchsize{
+/* Recent Search buttom Section Styles */
+.searchsize {
   margin-right: 15vh;
   color: #999;
 }
-

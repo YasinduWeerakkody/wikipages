@@ -1,4 +1,4 @@
-.navbar{
+.navbar {
   margin-top: 0px;
   height: 60px;
   background-color: rgb(255, 255, 255);
@@ -7,50 +7,47 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
- 
 }
 
-.navbar_left{
+.navbar_left {
   /* Future Implementations */
   margin-left: 10px;
 }
-.navbar_left_img{
+.navbar_left_img {
   height: 40px;
   cursor: pointer;
 }
-.navbar_left_img > img{
+.navbar_left_img > img {
   height: 40px;
 }
-.navbar_right{
+.navbar_right {
   display: flex;
 }
-.navbar_right_btns{
+.navbar_right_btns {
   border-right: 2px solid rgb(197, 197, 197);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-
 }
-.navbar_right_btns_icon{
+.navbar_right_btns_icon {
   font-size: 24px;
   color: rgb(158, 158, 158);
   cursor: pointer;
-  margin-right:10px;
+  margin-right: 10px;
   transition: 0.3s;
 }
-.navbar_right_btns_icon:hover{
+.navbar_right_btns_icon:hover {
   color: rgb(0, 56, 222);
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
-.navbar_right_profile{
+.navbar_right_profile {
   display: flex;
   align-items: center;
   margin-right: 10px;
   margin-left: 10px;
   /* background-color: red; */
 }
-.navbar_right_profile_img{
+.navbar_right_profile_img {
   height: 50px;
   width: 50px;
   margin-right: 20px;
@@ -58,58 +55,54 @@
   cursor: pointer;
 }
 .navbar_right_profile_img:hover {
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
-.navbar_right_profile_img > img{
+.navbar_right_profile_img > img {
   height: 100%;
   width: 100%;
   border-radius: 50%;
-  
 }
-.navbar_right_profile_info{
+.navbar_right_profile_info {
   /* background-color: red; */
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: start;
   height: 50px;
   line-height: 1.2;
-  
 }
 
-.navbar_right_profile_name{
- color: black;
-  font-size: 24px;
-  font-weight: bold;
-
-}
-
-.navbar_right_profile_email{
+.navbar_right_profile_name {
+  color: black;
   font-size: 18px;
+  font-weight: bold;
+}
+
+.navbar_right_profile_email {
+  font-size: 16px;
   color: rgb(100, 100, 100);
 }
 
-
-@media screen and (max-width: 650px){
-  .navbar{
+@media screen and (max-width: 650px) {
+  .navbar {
     /* background-color: rgb(255, 0, 0); */
     height: 50px;
   }
-  .navbar_left_img{
+  .navbar_left_img {
     height: 30px;
   }
-  .navbar_left_img > img{
+  .navbar_left_img > img {
     height: 30px;
   }
-  .navbar_right_profile_img{
+  .navbar_right_profile_img {
     height: 40px;
     width: 40px;
   }
-  .navbar_right_profile_info{
+  .navbar_right_profile_info {
     height: 40px;
   }
   .navbar_right_profile_name,
   .navbar_right_profile_email {
-    display: none; 
+    display: none;
   }
-  
 }
