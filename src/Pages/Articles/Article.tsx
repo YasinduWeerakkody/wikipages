@@ -7,6 +7,7 @@ import { GetArticleService } from "../../Services/ArticlesService";
 import CustomCardArticle from "../../components/CustomCardsArticle/CustomCardArticle";
 import { useNavigate } from "react-router-dom";
 import CustomSearchInputText from "../../components/CustomSearchInputText/CustomSearchInputText";
+import CustomBreadcrumb from "../../components/CustomBreadCrumb/CustomBreadCrumb";
 const { Content } = Layout;
 
 const Article: React.FC = () => {
@@ -52,12 +53,15 @@ const Article: React.FC = () => {
       <Navbar />
       <Layout>
         <Content
-          style={{
-            padding: "0 40px",
-            minHeight: 280,
-            marginBottom: "30px",
-          }}>
-          <p className="pu">WIKI / IYKONS Article</p>
+          className="defaultContainer"
+          // style={{
+          //   padding: "0 40px",
+          //   minHeight: 280,
+          //   marginBottom: "30px",
+          // }}
+        >
+          {/* <p className="pu">WIKI / IYKONS Article</p> */}
+          <CustomBreadcrumb />
           <div className="recent">
             <div
               className="back-header"

@@ -1,3 +1,7 @@
+.defaultContainer {
+  padding: 24px;
+}
+
 /* Header Styles */
 .header {
   display: flex;
@@ -40,12 +44,6 @@
 
 .site-layout-background {
   background: #fff;
-}
-
-.content {
-  padding: 24px;
-  /* background: #f0f2f5; */
-  background-color: ;
 }
 
 .content-header {

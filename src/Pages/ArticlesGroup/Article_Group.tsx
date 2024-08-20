@@ -7,6 +7,7 @@ import { GetArticlGroupeService } from "../../Services/ArticlesGroupService";
 import CustomCardArticleGroup from "../../components/CustomCardsArticleGroup/CustomCardArticleGroup";
 import { useNavigate } from "react-router-dom";
 import CustomSearchInputText from "../../components/CustomSearchInputText/CustomSearchInputText";
+import CustomBreadcrumb from "../../components/CustomBreadCrumb/CustomBreadCrumb";
 const { Content } = Layout;
 
 const Article_Group: React.FC = () => {
@@ -50,17 +51,19 @@ const Article_Group: React.FC = () => {
 
   return (
     <div>
-      <Layout className="articleGroup_layout">
+      <Layout>
         <Navbar />
 
         <Content
-          style={{
-            padding: "0 40px",
-            minHeight: 280,
-            marginBottom: "30px",
-          }}>
-          <p className="pu">WIKI / IYKONS Article Group</p>
-
+          className="defaultContainer"
+          // style={{
+          //   padding: "0 40px",
+          //   minHeight: 280,
+          //   marginBottom: "30px",
+          // }}
+        >
+          {/* <p className="pu">WIKI / IYKONS Article Group</p> */}
+          <CustomBreadcrumb />
           <div className="recent">
             <div
               className="back-header"

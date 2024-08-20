@@ -5,37 +5,36 @@ import Article_Group from "../Pages/ArticlesGroup/Article_Group";
 import WikiPage from "../Pages/Wiki/WikiPage/WikiPage";
 import ArticleView from "../Pages/ArticleView/ArticleView";
 import ArticleGroupView from "../Pages/ArticleGroupView/ArticleGroupView";
-import HistoryPage from "../Pages/History/HistoryPage";
 const routesList = [
   {
     path: "/",
     component: WikiPage,
     key: "/",
+    breadcrumbName: "Wiki",
   },
   {
     path: "/WIKI/IYKONSArticleGroup",
     component: Article_Group,
     key: "/WIKI/IYKONSArticleGroup",
+    breadcrumbName: "Article Groups",
   },
   {
     path: "/WIKI/IYKONSArticle",
     component: Article,
     key: "/WIKI/IYKONSArticle",
+    breadcrumbName: "Articles",
   },
   {
     path: "/WIKI/IYKONSArticle/View",
     component: ArticleView,
     key: "/WIKI/IYKONSArticle/View",
+    breadcrumbName: "View Article",
   },
   {
     path: "/WIKI/IYKONSArticleGroup/View",
     component: ArticleGroupView,
     key: "/WIKI/IYKONSArticleGroup/View",
-  },
-  {
-    path: "/WIKI/History",
-    component: HistoryPage,
-    key: "/WIKI/History",
+    breadcrumbName: "View Article Group",
   },
 ];
 

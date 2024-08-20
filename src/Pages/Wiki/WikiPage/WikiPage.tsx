@@ -7,6 +7,7 @@ import Navbar from "../../../components/Navbar/Navbar";
 import { useNavigate } from "react-router-dom";
 import CustomSearchInputText from "../../../components/CustomSearchInputText/CustomSearchInputText";
 import Recent from "../Recent/Recent";
+import CustomBreadcrumb from "../../../components/CustomBreadCrumb/CustomBreadCrumb";
 const { Header, Sider, Content } = Layout;
 
 const WikiPage: React.FC = () => {
@@ -42,56 +43,55 @@ const WikiPage: React.FC = () => {
   const HandleSearchClick = () => {};
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
-      <Navbar />
-
-      {/* WIKI - Dashboard */}
+    <div className="">
       <Layout>
-        <Layout style={{ padding: "24px" }}>
-          <Content className="content">
-            <p className="topic1">WIKI</p>
+        <Navbar />
 
-            <div className="recent-articles">
-              <div className="article-box1">
-                <h1>IYKONS WIKI</h1>
-                <p className="para1">
-                  One-step Resource for the staff members of IYKONS
-                </p>
-                <div className="search-button">
-                  <CustomSearchInputText
-                    placeholder="Search your keyword & enter"
-                    onclick={HandleSearchClick}
-                  />
-                </div>
+        {/* <Layout style={{ padding: "24px" }}> */}
+        <Content className="defaultContainer">
+          {/* <p className="topic1">WIKI</p> */}
+          <CustomBreadcrumb />
+          <div className="recent-articles">
+            <div className="article-box1">
+              <h1>IYKONS WIKI</h1>
+              <p className="para1">
+                One-step Resource for the staff members of IYKONS
+              </p>
+              <div className="search-button">
+                <CustomSearchInputText
+                  placeholder="Search your keyword & enter"
+                  onclick={HandleSearchClick}
+                />
               </div>
-
-              {/* FlexBox -Articles */}
-              <div className="articles">
-                <div
-                  onClick={() => HandleClick("Article")}
-                  className="article-box">
-                  <img src={img2} alt="Article Icon" className="article-img" />
-                  <h3 className="article-para">IYKONS Article</h3>
-                </div>
-                <div
-                  onClick={() => HandleClick("ArticleGroup")}
-                  className="article-box">
-                  <img src={img2} alt="Article Icon" className="article-img" />
-                  <h3 className="article-para">IYKONS Article Group</h3>
-                </div>
-              </div>
-              {/* FlexBox -Articles */}
-
-              {/* Recent START */}
-              <Recent />
-              {/* Recent END */}
             </div>
-          </Content>
-        </Layout>
-      </Layout>
 
-      {/* WIKI - Dashboard - END */}
-    </Layout>
+            {/* FlexBox -Articles */}
+            <div className="articles">
+              <div
+                onClick={() => HandleClick("Article")}
+                className="article-box">
+                <img src={img2} alt="Article Icon" className="article-img" />
+                <h3 className="article-para">IYKONS Article</h3>
+              </div>
+              <div
+                onClick={() => HandleClick("ArticleGroup")}
+                className="article-box">
+                <img src={img2} alt="Article Icon" className="article-img" />
+                <h3 className="article-para">IYKONS Article Group</h3>
+              </div>
+            </div>
+            {/* FlexBox -Articles */}
+
+            {/* Recent START */}
+            <Recent />
+            {/* Recent END */}
+          </div>
+        </Content>
+        {/* </Layout> */}
+
+        {/* WIKI - Dashboard - END */}
+      </Layout>
+    </div>
   );
 };
 
