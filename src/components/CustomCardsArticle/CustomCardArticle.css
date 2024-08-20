@@ -1,8 +1,8 @@
 .card {
   /* background-color: red; */
-  height: 220px;
-  width: 400px;
-  margin: 10px;
+  height: 170px;
+  width: 350px;
+  /* margin: 10px; */
   transition: 0.2s;
   overflow: hidden;
   cursor: pointer;

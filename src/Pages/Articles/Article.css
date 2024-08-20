@@ -1,8 +1,10 @@
 .Cards_Container {
-  display: flex;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
   align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
 }
 
 .displayoute {
@@ -12,7 +14,16 @@
   text-align: left;
 }
 
-/* Responsive Adjustments */
+@media screen and (max-width: 1240px) {
+  .Cards_Container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 875px) {
+  .Cards_Container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 
 @media (max-width: 768px) {
   .back-header {

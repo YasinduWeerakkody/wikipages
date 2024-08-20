@@ -12,11 +12,12 @@ const { Content } = Layout;
 const Article_Group: React.FC = () => {
   const navigate = useNavigate();
   const [articleGroups, setArticleGroups] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
+
+  //States used by the pagination component
   const [totalArticles, setTotalArticles] = useState(0);
-  const [pageSize, setPageSize] = useState(8); // Manage page size in state
-  // const pageSize = 9;
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(8);
 
   useEffect(() => {
     const fetchArticles = async () => {

@@ -44,7 +44,8 @@
 
 .content {
   padding: 24px;
-  background: #f0f2f5;
+  /* background: #f0f2f5; */
+  background-color: ;
 }
 
 .content-header {
@@ -87,6 +88,7 @@
   justify-content: center;
   width: 100%;
   max-width: 650px;
+  margin-bottom: 20px;
 }
 
 .si {
