@@ -1,19 +1,8 @@
-.card {
-  margin-bottom: 10px;
-  height: 220px;
-  width: 400px;
-
-  transition: 0.2s;
-  overflow: hidden;
-  cursor: pointer;
-  text-align: left;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for the 3D effect */
-  border-radius: 8px; /* Rounded corners */
-}
 .card p {
   /* background-color: pink; */
   line-height: 1.4;
   margin-bottom: 0;
+  margin-top: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

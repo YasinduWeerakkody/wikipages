@@ -13,7 +13,14 @@ const WikiPage: React.FC = () => {
   const navigate = useNavigate();
   const [position, setPosition] = useState<"start" | "end">("end");
 
+  // const setHistoryRecentType = () => {
+
+  // };
   const recentItems = [
+    { title: "Business news", time: "01 hr ago" },
+    { title: "Tax Rates & allowances", time: "01 day ago" },
+    { title: "Staff SOP", time: "01 day ago" },
+    { title: "Covid-19 & BR", time: "03 day ago" },
     { title: "Business news", time: "01 hr ago" },
     { title: "Tax Rates & allowances", time: "01 day ago" },
     { title: "Staff SOP", time: "01 day ago" },
@@ -27,9 +34,6 @@ const WikiPage: React.FC = () => {
         break;
       case "ArticleGroup":
         navigate("/WIKI/IYKONSArticleGroup");
-        break;
-      case "History":
-        navigate("/WIKI/History");
         break;
     }
   };
@@ -80,13 +84,6 @@ const WikiPage: React.FC = () => {
 
               {/* Recent START */}
               <Recent />
-
-              <Button
-                className="history-button"
-                onClick={() => HandleClick("History")}>
-                See more history
-              </Button>
-
               {/* Recent END */}
             </div>
           </Content>
