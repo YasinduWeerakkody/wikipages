@@ -21,9 +21,12 @@ const Article_Group: React.FC = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const data = await GetArticlGroupeService(currentPage, pageSize);
-        setArticleGroups(data);
-        setTotalArticles(200);
+        setLoading(true);
+        const response = await GetArticlGroupeService(currentPage, pageSize);
+        //Destructure the response we got from the API
+        const { noOfRecords, articlesData } = response;
+        setArticleGroups(articlesData);
+        setTotalArticles(noOfRecords);
       } catch (error) {
         console.error("Failed to fetch articles groups:", error);
       } finally {
