@@ -21,9 +21,13 @@ const Article: React.FC = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const data = await GetArticleService(currentPage, pageSize);
-        setArticles(data);
-        setTotalArticles(200); // Set total articles if known, or dynamically based on API
+        setLoading(true);
+        const response = await GetArticleService(currentPage, pageSize);
+        //Destructure the response we got from the API
+        const { noOfRecords, articlesData } = response;
+
+        setArticles(articlesData);
+        setTotalArticles(noOfRecords);
       } catch (error) {
         console.error("Failed to fetch articles:", error);
       } finally {
