@@ -9,6 +9,7 @@ import { RootState } from "../../Store/store";
 import { resetArticle } from "../../Reducer/ArticleSlice";
 import backArrowIcon from "../../Assets/Images/backArrow.png";
 import CustomSearchInputText from "../../components/CustomSearchInputText/CustomSearchInputText";
+import CustomBreadcrumb from "../../components/CustomBreadCrumb/CustomBreadCrumb";
 import "./ArticleView.css";
 
 const ArticleView: React.FC = () => {
@@ -65,14 +66,9 @@ const ArticleView: React.FC = () => {
     <div>
       <Navbar />
       <Layout>
-        <Content
-          style={{
-            padding: "0 40px",
-            minHeight: 280,
-            marginBottom: "30px",
-          }}>
-          <p className="pu">WIKI / IYKONS Article</p>
-
+        <Content className="defaultContainer">
+          {/* <p className="pu">WIKI / IYKONS Article</p> */}
+          <CustomBreadcrumb />
           <div className="recent">
             <div
               className="DocumentView_top"
