@@ -3,7 +3,10 @@ import "../ArticlesGroup/ArticleGroup.css";
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Layout, Card, Row, Col, Pagination } from "antd";
 import Navbar from "../../components/Navbar/Navbar";
-import { GetArticlGroupeService } from "../../Services/ArticlesGroupService";
+import {
+  GetArticlGroupeService,
+  GetByNameArticleGroupService,
+} from "../../Services/ArticlesGroupService";
 import CustomCardArticleGroup from "../../components/CustomCardsArticleGroup/CustomCardArticleGroup";
 import { useNavigate } from "react-router-dom";
 import CustomSearchInputText from "../../components/CustomSearchInputText/CustomSearchInputText";
@@ -14,7 +17,7 @@ const Article_Group: React.FC = () => {
   const navigate = useNavigate();
   const [articleGroups, setArticleGroups] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const [searchTerm, setSearchTerm] = useState("");
   //States used by the pagination component
   const [totalArticles, setTotalArticles] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
@@ -26,8 +29,8 @@ const Article_Group: React.FC = () => {
         setLoading(true);
         const response = await GetArticlGroupeService(currentPage, pageSize);
         //Destructure the response we got from the API
-        const { noOfRecords, articlesData } = response;
-        setArticleGroups(articlesData);
+        const { noOfRecords, articleGroupsData } = response;
+        setArticleGroups(articleGroupsData);
         setTotalArticles(noOfRecords);
       } catch (error) {
         console.error("Failed to fetch articles groups:", error);
@@ -47,7 +50,29 @@ const Article_Group: React.FC = () => {
   };
 
   //Function handles search btn click: Fetching articles and rerender the page
-  const HandleSearchClick = () => {};
+  const HandleSearchClick = () => {
+    const fetchArticleGroupsByName = async () => {
+      try {
+        setLoading(true);
+        //the CurrentPage is set to 1 to fetch the first page of the search result
+        const response = await GetByNameArticleGroupService(
+          searchTerm,
+          1,
+          pageSize
+        );
+        //Destructure the response we got from the API
+        const { noOfRecords, articleGroupsData } = response;
+
+        setArticleGroups(articleGroupsData);
+        setTotalArticles(noOfRecords);
+      } catch (error) {
+        console.error("Failed to fetch articles:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchArticleGroupsByName();
+  };
 
   return (
     <div>
@@ -73,6 +98,7 @@ const Article_Group: React.FC = () => {
                 <CustomSearchInputText
                   placeholder="Search Article Group"
                   onclick={HandleSearchClick}
+                  onChange={(e) => setSearchTerm(e.target.value)}
                 />
               </div>
             </div>

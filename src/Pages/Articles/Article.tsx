@@ -3,7 +3,10 @@ import "../Articles/Article.css";
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Layout, Pagination, Spin } from "antd";
 import Navbar from "../../components/Navbar/Navbar";
-import { GetArticleService } from "../../Services/ArticlesService";
+import {
+  GetArticleService,
+  GetByNameArticleService,
+} from "../../Services/ArticlesService";
 import CustomCardArticle from "../../components/CustomCardsArticle/CustomCardArticle";
 import { useNavigate } from "react-router-dom";
 import CustomSearchInputText from "../../components/CustomSearchInputText/CustomSearchInputText";
@@ -18,7 +21,7 @@ const Article: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalArticles, setTotalArticles] = useState(0);
   const [pageSize, setPageSize] = useState(9);
-
+  const [searchTerm, setSearchTerm] = useState("");
   useEffect(() => {
     const fetchArticles = async () => {
       try {
@@ -47,7 +50,25 @@ const Article: React.FC = () => {
   };
 
   //Function handles search btn click: Fetching articles and rerender the page
-  const HandleSearchClick = () => {};
+  const HandleSearchClick = () => {
+    const fetchArticlesByName = async () => {
+      try {
+        setLoading(true);
+        //the CurrentPage is set to 1 to fetch the first page of the search result
+        const response = await GetByNameArticleService(searchTerm, 1, pageSize);
+        //Destructure the response we got from the API
+        const { noOfRecords, articlesData } = response;
+
+        setArticles(articlesData);
+        setTotalArticles(noOfRecords);
+      } catch (error) {
+        console.error("Failed to fetch articles:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchArticlesByName();
+  };
   return (
     <div>
       <Navbar />
@@ -71,6 +92,7 @@ const Article: React.FC = () => {
                 <CustomSearchInputText
                   placeholder="Search Article"
                   onclick={HandleSearchClick}
+                  onChange={(e) => setSearchTerm(e.target.value)}
                 />
               </div>
             </div>
