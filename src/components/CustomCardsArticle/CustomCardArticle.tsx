@@ -26,7 +26,7 @@ const CustomCardArticle: React.FC<{ data: any }> = (props) => {
         onClick={HandleCardClick}
         className="card"
         title={parse(`${data.articleName} (${data.articleGroupName})`)}>
-        <p>{parse(data.articleDescription)}</p>
+        <p className="card-description">{parse(data.articleDescription)}</p>
       </Card>
     </div>
   );
