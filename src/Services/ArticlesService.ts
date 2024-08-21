@@ -40,16 +40,16 @@ export const GetArticleService = async (pageNo: any, pageSize: any) => {
 
 // Todo Need to implement the below function
 export const GetByNameArticleService = async (
-  FieldValue: any,
+  searchTerm: any,
   pageNo: any,
   pageSize: any
 ) => {
   const requestPayload = {
     searchCriteriaList: [
       {
-        fieldName: "string",
+        fieldName: "multiplesearch",
         searchOperator: 1,
-        fieldValue1: "string",
+        fieldValue1: searchTerm,
         fieldValue2: "string",
       },
     ],
@@ -65,7 +65,10 @@ export const GetByNameArticleService = async (
   try {
     const response = await axios.post(endpoint, requestPayload);
     console.log(response.data);
-    return response.data;
+    return {
+      noOfRecords: response.data.noOfRecords,
+      articlesData: response.data.data,
+    };
   } catch (error) {
     console.error("Error in GetArticleService: ", error);
     throw error;

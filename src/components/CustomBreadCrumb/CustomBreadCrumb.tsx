@@ -40,7 +40,7 @@ const CustomBreadcrumb = () => {
   // Start the breadcrumb items array with the 'Home' link
   const breadcrumbItems = [
     <Breadcrumb.Item key="home">
-      <Link to="/">Home</Link>
+      <Link to="/">WIKI</Link>
     </Breadcrumb.Item>,
   ];
 
@@ -65,7 +65,9 @@ const CustomBreadcrumb = () => {
 
   // Return the Breadcrumb component from Ant Design, populated with the generated breadcrumb items
   return (
-    <Breadcrumb className="CustomBreadCrumb">{breadcrumbItems}</Breadcrumb>
+    <Breadcrumb className="CustomBreadCrumbButton">
+      {breadcrumbItems}
+    </Breadcrumb>
   );
 };
 
