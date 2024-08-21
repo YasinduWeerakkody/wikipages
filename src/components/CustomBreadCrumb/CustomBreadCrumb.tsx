@@ -40,7 +40,7 @@ const CustomBreadcrumb = () => {
   // Start the breadcrumb items array with the 'Home' link
   const breadcrumbItems = [
     <Breadcrumb.Item key="home">
-      <Link to="/">Home</Link>
+      <Link to="/">WIKI</Link>
     </Breadcrumb.Item>,
   ];
 
