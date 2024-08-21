@@ -65,7 +65,9 @@ const CustomBreadcrumb = () => {
 
   // Return the Breadcrumb component from Ant Design, populated with the generated breadcrumb items
   return (
-    <Breadcrumb className="CustomBreadCrumb">{breadcrumbItems}</Breadcrumb>
+    <Breadcrumb className="CustomBreadCrumbButton">
+      {breadcrumbItems}
+    </Breadcrumb>
   );
 };
 
