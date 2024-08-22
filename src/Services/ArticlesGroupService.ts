@@ -24,7 +24,7 @@ export const GetArticlGroupeService = async (pageNo: any, pageSize: any) => {
     ],
   };
 
-  const endpoint = `https://reactapi.iykons.com/api/Wiki/GetArticleGroupList/${pageNo}/${pageSize}`;
+  const endpoint = `${process.env.REACT_APP_BASE_URL}/api/Wiki/GetArticleGroupList/${pageNo}/${pageSize}`;
 
   try {
     const response = await axios.post(endpoint, requestPayload);
@@ -62,7 +62,7 @@ export const GetByNameArticleGroupService = async (
     ],
   };
 
-  const endpoint = `https://reactapi.iykons.com/api/Wiki/GetArticleGroupList/${pageNo}/${pageSize}`;
+  const endpoint = `${process.env.REACT_APP_BASE_URL}/api/Wiki/GetArticleGroupList/${pageNo}/${pageSize}`;
   try {
     const response = await axios.post(endpoint, requestPayload);
     console.log(response.data);
