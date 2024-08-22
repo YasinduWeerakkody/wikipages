@@ -57,12 +57,12 @@ const WikiPage: React.FC = () => {
               <p className="para1">
                 One-step Resource for the staff members of IYKONS
               </p>
-              <div className="search-button">
+              {/* <div className="search-button">
                 <CustomSearchInputText
                   placeholder="Search your keyword & enter"
                   onclick={HandleSearchClick}
                 />
-              </div>
+              </div> */}
             </div>
 
             {/* FlexBox -Articles */}
