@@ -2,6 +2,7 @@
   "name": "wikipages",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://apitest1.iykons.com",
   "dependencies": {
     "@ant-design/icons": "^5.4.0",
     "@reduxjs/toolkit": "^2.2.7",

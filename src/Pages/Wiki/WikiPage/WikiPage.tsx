@@ -39,9 +39,6 @@ const WikiPage: React.FC = () => {
     }
   };
 
-  //Function handles search btn click: Fetching articles and rerender the page
-  const HandleSearchClick = () => {};
-
   return (
     <div className="">
       <Layout>
