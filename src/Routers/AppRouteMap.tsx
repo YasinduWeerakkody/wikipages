@@ -5,6 +5,7 @@ import Article_Group from "../Pages/ArticlesGroup/Article_Group";
 import WikiPage from "../Pages/Wiki/WikiPage/WikiPage";
 import ArticleView from "../Pages/ArticleView/ArticleView";
 import ArticleGroupView from "../Pages/ArticleGroupView/ArticleGroupView";
+import RecentArticleView from "../Pages/Wiki/RecentArticleView/RecentArticleView";
 const routesList = [
   {
     path: "/",
@@ -35,6 +36,12 @@ const routesList = [
     component: ArticleGroupView,
     key: "/WIKI/IYKONSArticleGroup/View",
     breadcrumbName: "View Article Group",
+  },
+  {
+    path: "/WIKI/RecentArticle/View",
+    component: RecentArticleView,
+    key: "/WIKI/RecentArticle/View",
+    breadcrumbName: "View Recent Article ",
   },
 ];
 

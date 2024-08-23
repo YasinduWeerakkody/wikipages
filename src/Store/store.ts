@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import ArticleReducer from "../Reducer/ArticleSlice"; // Import the rootReducer correctly
 import ArticleGroupReducer from "../Reducer/ArticleGroupSlice";
+import HistoryReducer from "../Reducer/HistorySlice";
 const store = configureStore({
   reducer: {
     articles: ArticleReducer,
     articleGroups: ArticleGroupReducer,
+    histories: HistoryReducer,
   }, // Use the rootReducer in the store
 });
 

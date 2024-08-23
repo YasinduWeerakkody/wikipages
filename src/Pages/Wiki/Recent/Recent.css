@@ -16,12 +16,15 @@
   border-radius: 8px;
 }
 .recent_cardInfo {
+  cursor: pointer;
   padding: 5px 10px 5px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
+.recent_cardInfo h3 {
+  text-align: left;
+}
 /* 
 .recent-articles {
   background: #fff;

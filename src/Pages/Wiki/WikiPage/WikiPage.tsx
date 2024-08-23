@@ -39,9 +39,6 @@ const WikiPage: React.FC = () => {
     }
   };
 
-  //Function handles search btn click: Fetching articles and rerender the page
-  const HandleSearchClick = () => {};
-
   return (
     <div className="">
       <Layout>
@@ -57,12 +54,12 @@ const WikiPage: React.FC = () => {
               <p className="para1">
                 One-step Resource for the staff members of IYKONS
               </p>
-              <div className="search-button">
+              {/* <div className="search-button">
                 <CustomSearchInputText
                   placeholder="Search your keyword & enter"
                   onclick={HandleSearchClick}
                 />
-              </div>
+              </div> */}
             </div>
 
             {/* FlexBox -Articles */}

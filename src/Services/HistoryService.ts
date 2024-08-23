@@ -1,26 +1,14 @@
 import React from "react";
-import axios from "../Utils/API/AxiosConfig";
-export const GetHistoryService = (pageNo: any, pageSize: any) => {
-  const requestPayload = {
-    searchCriteriaList: [
-      {
-        fieldName: "string",
-        searchOperator: 1,
-        fieldValue1: "string",
-        fieldValue2: "string",
-      },
-    ],
-    sortOrderList: [
-      {
-        fieldName: "string",
-        orderDirection: 0,
-      },
-    ],
-  };
+// import axios from "../Utils/API/AxiosConfig";
+import axios from "axios";
+//pageNo: any, pageSize: any
+export const GetHistoryService = async () => {
+  const endpoint = `${process.env.REACT_APP_BASE_URL_TEST}/api/Wiki/GetRecentHistory`;
 
-  const endpoint = `${process.env.REACT_APP_BASE_URL}/api/Wiki/GetHistory/${pageNo}/${pageSize}`;
   try {
-    const response = axios.post(endpoint, requestPayload);
+    const response = await axios.get(endpoint);
+
+    return response.data.data;
   } catch (error) {
     console.error("Error in GetHistoryService: ", error);
     throw error;

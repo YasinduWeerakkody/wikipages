@@ -24,7 +24,7 @@ export const GetArticleService = async (pageNo: any, pageSize: any) => {
     ],
   };
 
-  const endpoint = `${process.env.REACT_APP_BASE_URL}/api/Wiki/GetArticleList/${pageNo}/${pageSize}`;
+  const endpoint = `https://reactapi.iykons.com/api/Wiki/GetArticleList/${pageNo}/${pageSize}`;
   try {
     const response = await axios.post(endpoint, requestPayload);
     console.log(response.data);
@@ -38,6 +38,7 @@ export const GetArticleService = async (pageNo: any, pageSize: any) => {
   }
 };
 
+// Todo Need to implement the below function
 export const GetByNameArticleService = async (
   searchTerm: any,
   pageNo: any,
@@ -60,7 +61,7 @@ export const GetByNameArticleService = async (
     ],
   };
 
-  const endpoint = `${process.env.REACT_APP_BASE_URL}/api/Wiki/GetArticleList/${pageNo}/${pageSize}`;
+  const endpoint = `https://reactapi.iykons.com/api/Wiki/GetArticleList/${pageNo}/${pageSize}`;
   try {
     const response = await axios.post(endpoint, requestPayload);
     console.log(response.data);
@@ -69,7 +70,7 @@ export const GetByNameArticleService = async (
       articlesData: response.data.data,
     };
   } catch (error) {
-    console.error("Error in GetArticleServiceByName: ", error);
+    console.error("Error in GetArticleService: ", error);
     throw error;
   }
 };
