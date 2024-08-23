@@ -6,6 +6,7 @@ import ModifyTimestamp from "../ModifyTimestamp/ModifyTimestamp";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setHistory } from "../../../Reducer/HistorySlice";
+import { Spin } from "antd";
 interface Article {
   no: number;
   articleGroupId: number;
@@ -31,9 +32,9 @@ const Recent = () => {
   useEffect(() => {
     const fetchRecentArticles = async () => {
       try {
+        setLoading(true);
         const historyData = await GetHistoryService();
         setRecentList(historyData);
-        setLoading(true);
       } catch (error) {
         console.error("Failed to fetch articles:", error);
       } finally {
@@ -48,32 +49,36 @@ const Recent = () => {
     dispatch(setHistory(item));
   };
   const HistoryButtonClick = () => {
-    setLoading(true);
+    // setLoading(true);
     setHistoryVisible(!historyVisible);
   };
   return (
     <div className="recent-list">
       <p className="topic">{historyVisible ? "History" : "Recent"}</p>
-      <div className="recent_cards">
-        {displayedItems.map((item, index) => {
-          console.log("item is ", item.name);
-          const timeAgoText = ModifyTimestamp(item.createdDate);
-          return (
-            <div
-              className="recent_card"
-              style={{
-                backgroundColor: index % 2 === 0 ? "#e6f7ff" : "#ffffff",
-              }}>
+      {loading ? (
+        <Spin size="large" />
+      ) : (
+        <div className="recent_cards">
+          {displayedItems.map((item, index) => {
+            const timeAgoText = ModifyTimestamp(item.createdDate);
+            return (
               <div
-                className="recent_cardInfo"
-                onClick={() => HandleHistoryTileClick(item)}>
-                <h3> {item.name}</h3>
-                <p>{timeAgoText}</p>
+                className="recent_card"
+                style={{
+                  backgroundColor: index % 2 === 0 ? "#e6f7ff" : "#ffffff",
+                }}>
+                <div
+                  className="recent_cardInfo"
+                  onClick={() => HandleHistoryTileClick(item)}>
+                  <h3> {item.name}</h3>
+                  <p>{timeAgoText}</p>
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      )}
+
       <Button className="history-button" onClick={HistoryButtonClick}>
         {historyVisible ? "Go back" : "See more history"}
       </Button>

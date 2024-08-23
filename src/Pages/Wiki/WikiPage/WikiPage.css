@@ -111,7 +111,7 @@
 .article-box {
   cursor: pointer;
   flex: 1;
-  min-width: 300px;
+  width: 300px;
   max-width: 48%;
   margin: 8px;
   text-align: center;
@@ -123,7 +123,7 @@
 }
 .article-box:hover {
   transform: scale(1.03);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.145);
 }
 
 .article-box1 {
@@ -201,5 +201,12 @@
 
   .history-button {
     width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .article-box {
+    margin: 8px 0;
+    max-width: 98%;
   }
 }

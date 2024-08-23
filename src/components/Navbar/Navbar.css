@@ -55,7 +55,7 @@
   cursor: pointer;
 }
 .navbar_right_profile_img:hover {
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
 }
 .navbar_right_profile_img > img {
   height: 100%;
