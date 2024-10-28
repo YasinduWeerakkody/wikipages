@@ -45,7 +45,7 @@ const Recent = () => {
   }, []);
   const HandleHistoryTileClick = (item: Article) => {
     navigate(`/WIKI/RecentArticle/View`);
-    console.log(item);
+    //console.log(item);
     dispatch(setHistory(item));
   };
   const HistoryButtonClick = () => {

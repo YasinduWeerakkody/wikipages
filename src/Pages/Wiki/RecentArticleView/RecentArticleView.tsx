@@ -11,6 +11,7 @@ import CustomSearchInputText from "../../../components/CustomSearchInputText/Cus
 import "./RecentArticleView.css";
 import CustomBreadcrumb from "../../../components/CustomBreadCrumb/CustomBreadCrumb";
 import { resetHistory } from "../../../Reducer/HistorySlice";
+
 const RecentArticleView = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -19,13 +20,16 @@ const RecentArticleView = () => {
   const [noSearchResults, setNoSearchResults] = useState(false);
 
   const DocumentData = useSelector((state: RootState) => state.histories);
+  //console.log("++++++++++++++++");
+  //console.log(DocumentData);
   useEffect(() => {
     if (
       !DocumentData.histories[0].description ||
       DocumentData.histories.length === 0
     ) {
       navigate("/");
-      alert("No Data Found");
+      // dispatch(resetHistory());
+      //alert("No Data Found");
     }
   }, [DocumentData, navigate]);
 

@@ -27,7 +27,7 @@ export const GetArticleService = async (pageNo: any, pageSize: any) => {
   const endpoint = `https://reactapi.iykons.com/api/Wiki/GetArticleList/${pageNo}/${pageSize}`;
   try {
     const response = await axios.post(endpoint, requestPayload);
-    console.log(response.data);
+    // console.log(response.data);
     return {
       noOfRecords: response.data.noOfRecords,
       articlesData: response.data.data,
